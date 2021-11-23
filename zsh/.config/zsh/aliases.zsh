@@ -29,7 +29,7 @@ alias set.zsh="nvim $HOME/.zshrc"
 alias set.env="nvim $HOME/.zshenv"
 alias set.aliases="nvim $HOME/.config/zsh/aliases.zsh"
 alias set.completion="nvim $HOME/.config/zsh/completion.zsh"
-alias set.nvim="nvim $HOME/.config/nvim/init.vim"
+alias set.nvim="nvim $HOME/.config/nvim/init.lua"
 alias set.kitty="nvim $HOME/.config/kitty/kitty.conf"
 
 # SHORTCUTS

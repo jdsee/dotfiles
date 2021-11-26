@@ -17,6 +17,18 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# ZOXIDE
+eval "$(zoxide init zsh --cmd j)"
+
+# HOMEBREW COMPLETION
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # PLUGINS
 zinit ice wait'!0'
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'   # pure theme
@@ -34,9 +46,6 @@ PURE_CMD_MAX_EXEC_TIME=0
 zstyle :prompt:pure:git:stash show yes
 zstyle :prompt:pure:execution_time color white
 zstyle :prompt:pure:prompt:success color white
-
-# ZOXIDE
-eval "$(zoxide init zsh --cmd j)"
 
 # MKDIR -> CD
 function mkcd {

@@ -20,7 +20,7 @@ vim.api.nvim_exec(
 -- Keybindings
 map('n', '<Leader><CR>', ':LeaderfBuffer<CR>')                -- search buffers
 map('n', '<Leader>m', ':LeaderfMru<CR>')                      -- search mru files
-map('n', '<Leader>g', ':Leaderf rg<CR> -S')                   -- grep everywhere
+map('n', '<Leader>g', ':Leaderf rg -S<CR>')                   -- grep everywhere
 map('n', '<Leader>f', ':Leaderf rg -S --current-buffer<CR>')  -- grep current buffer
 map('n', '<Leader>h', ':LeaderfHelp<CR>')                     -- grep current buffer
 

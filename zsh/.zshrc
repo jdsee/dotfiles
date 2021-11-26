@@ -3,15 +3,16 @@
 # ---------------------------------------------------------------------------------
 
 # SOURCES
-source $HOME/.zinit/bin/zinit.zsh       # docs: https://zdharma-continuum.github.io/zinit/wiki/
+source "${ZINIT_HOME}/zinit.zsh"          # docs: https://zdharma-continuum.github.io/zinit/wiki/
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/completion.zsh
 
 # OPTIONS
-setopt HIST_IGNORE_ALL_DUPS             # ignore history duplicates
+setopt HIST_IGNORE_ALL_DUPS               # ignore history duplicates
 
 # CASE INSENSITIVE MATCHING
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
 # PYTHON
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -72,3 +73,13 @@ bindkey '^J'            history-beginning-search-forward
 
 bindkey '^[[108;6u'     autosuggest-accept
 
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk

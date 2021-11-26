@@ -9,5 +9,5 @@ EDITOR=/usr/local/bin/nvim
 
 # APPLICATIONS
 JAVA_HOME=/usr/libexec/java_home
-CATALINA_HOME=/usr/local/Cellar/tomcat/9.0.39/libexec
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 

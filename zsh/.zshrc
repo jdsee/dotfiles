@@ -10,24 +10,12 @@ source $HOME/.config/zsh/completion.zsh
 # OPTIONS
 setopt HIST_IGNORE_ALL_DUPS               # ignore history duplicates
 
-# CASE INSENSITIVE MATCHING
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-
 # PYTHON
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # ZOXIDE
 eval "$(zoxide init zsh --cmd j)"
-
-# HOMEBREW COMPLETION
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
 
 # PLUGINS
 zinit ice wait'!0'
@@ -80,15 +68,5 @@ bindkey '^J'            down-line-or-search
 bindkey '^J'            down-line-or-select
 bindkey '^J'            history-beginning-search-forward
 
-bindkey '^[[108;6u'     autosuggest-accept
+bindkey '^[[108;6u'       autosuggest-accept
 
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-### End of Zinit's installer chunk

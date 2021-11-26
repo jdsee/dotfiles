@@ -2,6 +2,7 @@
 	email = s0566845@htw-berlin.de
 	name = Joscha Seelig
 	username = jdsee
+	signingKey = 7C6415AC
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
@@ -14,3 +15,7 @@
 	rebase = true
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

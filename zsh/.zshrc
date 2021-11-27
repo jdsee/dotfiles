@@ -6,6 +6,7 @@
 source "${ZINIT_HOME}/zinit.zsh"          # docs: https://zdharma-continuum.github.io/zinit/wiki/
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/completion.zsh
+source $HOME/.config/zsh/functions.zsh
 
 # OPTIONS
 setopt HIST_IGNORE_ALL_DUPS               # ignore history duplicates
@@ -13,7 +14,6 @@ setopt HIST_IGNORE_ALL_DUPS               # ignore history duplicates
 # PYTHON
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
 # ZOXIDE
 eval "$(zoxide init zsh --cmd j)"
 
@@ -35,38 +35,14 @@ zstyle :prompt:pure:git:stash show yes
 zstyle :prompt:pure:execution_time color white
 zstyle :prompt:pure:prompt:success color white
 
-# MKDIR -> CD
-function mkcd {
-  last=$(eval "echo \$$#")
-  if [ ! -n "$last" ]; then
-    echo "Enter a directory name"
-  elif [ -d $last ]; then
-    echo "\`$last' already exists"
-  else
-    mkdir $@ && cd $last
-  fi
-}
-
-# EXIT-CODE PROMPT
-function check_last_exit_code() {
-  local LAST_EXIT_CODE=$?
-  if [[ $LAST_EXIT_CODE -ne 0 ]]; then
-    local EXIT_CODE_PROMPT=' '
-    EXIT_CODE_PROMPT+="%{$fg_bold[red]%}❗$LAST_EXIT_CODE%{$reset_color%}"
-  fi
-  echo $EXIT_CODE_PROMPT
-}
-
 autoload -U colors && colors
 RPROMPT='$(check_last_exit_code)'
 
 # ZSH KEY-BINDINGS
-bindkey '^K'            up-line-or-search
-bindkey '^K'            up-line-or-select
-bindkey '^K'            history-beginning-search-backward
-bindkey '^J'            down-line-or-search
-bindkey '^J'            down-line-or-select
-bindkey '^J'            history-beginning-search-forward
+bindkey '^K'                      up-line-or-search up-line-or-select history-beginning-search-backward
+bindkey '^J'                      down-line-or-search down-line-or-select history-beginning-search-forward
+bindkey '^[[108;6u'               autosuggest-accept
 
-bindkey '^[[108;6u'       autosuggest-accept
+# FZF KEYBINDINGS
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

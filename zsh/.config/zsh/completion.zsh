@@ -1,3 +1,4 @@
+#!/bin/zsh 
 # -----------------------------------------------------------------------------------------------------
 # ZSH - COMPLETIONS
 # -----------------------------------------------------------------------------------------------------
@@ -17,8 +18,6 @@ bindkey -M menuselect '^U' undo
 
 bindkey '^[[Z' reverse-menu-complete    # activate shift-tab for cycling back
 
-autoload -Uz compinit && compinit
-
 # OPTIONS
 # -----------------
 setopt ALWAYS_TO_END                    # place cursor to end after completion
@@ -26,15 +25,18 @@ setopt LIST_PACKED                      # minimize occupied space of completion 
 setopt MENU_COMPLETE                    # highlight first element of completion menu
 setopt AUTO_LIST                        # list choices on ambiguous completion.
 setopt COMPLETE_IN_WORD                 # complete from both ends of a word.
-setopt GLOBDOTS                         # include dotfiles
+setopt GLOB                             # activate filename generation
+setopt GLOB_DOTS                        # include dotfiles
 
 # ZSTYLES
 # -----------------
 # :completion:<function>:<completer>:<command>:<argument>:<tag>
 
-# case insensitive matching
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+# case insensitive matching and ignoring preceding dot
+zstyle ':completion:*' matcher-list 'r:|?=**' '+m:{a-zA-Z}={A-Za-z}' '+r:|[._-]=* r:|=*' '+l:|=* r:|=*'
 
 source $HOME/.config/zsh/homebrew-completion.zsh
 source $HOME/.config/zsh/ssh-host-completion.zsh
+
+autoload -Uz compinit && compinit
 

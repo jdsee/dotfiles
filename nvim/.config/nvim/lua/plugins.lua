@@ -13,7 +13,6 @@ return require('packer').startup(
     use { 'norcalli/nvim-colorizer.lua' }                 -- visualize color-codes
     use { 'numToStr/Comment.nvim' }                       -- comment with gcc
     use { 'tpope/vim-repeat' }                            -- repeat plugin commands with .
-    use { 'tpope/vim-unimpaired' }                        -- convenient mappings like [<Space>
     use { 'nvim-lualine/lualine.nvim' }                   -- status line
     use { 'tpope/vim-surround' }                          -- work on surrounding characters like [({"'...
     use { 'akinsho/toggleterm.nvim'}                      -- better inbuild terminal
@@ -34,24 +33,19 @@ return require('packer').startup(
           requires = 'kyazdani42/nvim-web-devicons'       ---
         }
     use { 'neovim/nvim-lspconfig' }                       -- basic language support
-    use { 'scalameta/nvim-metals' }                       -- scala language support
+    -- use { 'scalameta/nvim-metals' }                       -- scala language support
+    use { 'onsails/lspkind-nvim' }                        -- icons in completion list
+    use { 'L3MON4D3/LuaSnip' }                            -- luasnip
+    use { 'rafamadriz/friendly-snippets' }                -- some general snippets for luasnip
     use { 'hrsh7th/nvim-cmp',                             -- lsp completion
           requires = {                                    ---
             { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-path' },
-            { 'hrsh7th/cmp-vsnip' },
-            { 'hrsh7th/vim-vsnip' },
+            { 'hrsh7th/cmp-nvim-lua' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'saadparwaiz1/cmp_luasnip' },
           },
-        }
-    use { 'nvim-telescope/telescope.nvim',                -- another fuzzy finder / TODO: delete
-          requires = {                                    ---
-            { 'nvim-lua/popup.nvim' },
-            { 'nvim-lua/plenary.nvim' },
-            { 'nvim-telescope/telescope-fzy-native.nvim' }
-          }
         }
   end
 )
-
 

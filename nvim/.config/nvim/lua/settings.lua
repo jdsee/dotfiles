@@ -2,6 +2,7 @@
 -- |-------------------------------------------------------------------------------
 -- NVIM OPTIONS
 -- |-------------------------------------------------------------------------------
+
 local g = vim.g
 local o = vim.o
 local wo = vim.wo
@@ -35,3 +36,4 @@ opt_global.hidden = true            -- hide buffers without saving
 opt_global.showmatch = true         -- show matching brackets
 o.background = 'dark'
 cmd('colorscheme gruvbox')
+g.setinccommand = 'no-split'        -- visualize command while typing

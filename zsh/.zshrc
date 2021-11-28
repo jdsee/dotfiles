@@ -2,18 +2,21 @@
 # ZSH - CONFIG
 # ---------------------------------------------------------------------------------
 
+CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/config}
 # SOURCES
 source "${ZINIT_HOME}/zinit.zsh"          # docs: https://zdharma-continuum.github.io/zinit/wiki/
-source $HOME/.config/zsh/aliases.zsh
-source $HOME/.config/zsh/completion.zsh
-source $HOME/.config/zsh/functions.zsh
+source $CONFIG_HOME/zsh/aliases.zsh
+source $CONFIG_HOME/zsh/completion.zsh
+source $CONFIG_HOME/zsh/functions.zsh
 
+export GPG_TTY=$(tty)                     # required by gpg-agent
 # OPTIONS
 setopt HIST_IGNORE_ALL_DUPS               # ignore history duplicates
 
 # PYTHON
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
 # ZOXIDE
 eval "$(zoxide init zsh --cmd j)"
 
@@ -22,6 +25,7 @@ zinit ice wait'!0'
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'   # pure theme
 zinit light sindresorhus/pure                                       # "
 zinit light zsh-users/zsh-syntax-highlighting                       # syntax highlighting
+zinit light Aloxaf/fzf-tab                                          # tab completion with fzf
 zinit light zsh-users/zsh-autosuggestions                           # autosuggestions
 zinit light ajeetdsouza/zoxide                                      # autojump
 zinit snippet OMZ::plugins/git/git.plugin.zsh                       # git helper
@@ -44,5 +48,5 @@ bindkey '^J'                      down-line-or-search down-line-or-select histor
 bindkey '^[[108;6u'               autosuggest-accept
 
 # FZF KEYBINDINGS
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $CONFIG_HOME/zsh/.fzf.zsh ] && source $CONFIG_HOME/zsh/.fzf.zsh
 

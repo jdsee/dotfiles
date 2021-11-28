@@ -14,10 +14,6 @@ cmd([[
   xmap <Leader>s <plug>(SubversiveSubstituteRange)
   nmap <Leader>ss <plug>(SubversiveSubstituteWordRange)
 
-  nmap <Leader>c <plug>(SubversiveSubstituteRangeConfirm)
-  xmap <Leader>c <plug>(SubversiveSubstituteRangeConfirm)
-  nmap <Leader>cc <plug>(SubversiveSubstituteWordRangeConfirm)
-
   xmap s <plug>(SubversiveSubstitute)
   xmap p <plug>(SubversiveSubstitute)
   xmap P <plug>(SubversiveSubstitute)

@@ -33,8 +33,14 @@ return require('packer').startup(
           requires = 'kyazdani42/nvim-web-devicons'       ---
         }
     use { 'neovim/nvim-lspconfig' }                       -- basic language support
-    -- use { 'scalameta/nvim-metals' }                       -- scala language support
+    use { "nvim-lua/plenary.nvim" }                       -- plenary
+    use { "scalameta/nvim-metals",                        -- scala language support
+          requires = { "nvim-lua/plenary.nvim" }          ---
+        }
     use { 'onsails/lspkind-nvim' }                        -- icons in completion list
+    use { 'RishabhRD/nvim-lsputils',                      -- default settings for lsp
+          requires = { 'RishabhRD/popfix' }               ---
+        }
     use { 'L3MON4D3/LuaSnip' }                            -- luasnip
     use { 'rafamadriz/friendly-snippets' }                -- some general snippets for luasnip
     use { 'hrsh7th/nvim-cmp',                             -- lsp completion

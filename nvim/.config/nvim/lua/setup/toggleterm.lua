@@ -7,10 +7,10 @@ local bmap = f.bmap
 local cmd = vim.cmd
 
 require('toggleterm').setup{
-  open_mapping = [[<C-F>]],
-  shading_factor = '2',
+  open_mapping = [[<C-G>]],
+  shading_factor = '3',
   size = 23,
-  shade_terminals = false
+  shade_terminals = true
 }
 
 function _G.set_terminal_keymaps()
@@ -19,6 +19,8 @@ function _G.set_terminal_keymaps()
   bmap('t', '<C-S-j>', [[<C-\><C-n><C-W>j]])
   bmap('t', '<C-S-k>', [[<C-\><C-n><C-W>k]])
   bmap('t', '<C-S-l>', [[<C-\><C-n><C-W>l]])
+  bmap('t', '<C-S-G>', [[<C-\><C-n>:ToggleTermToggleAll<CR>]])
+  map('n', '<C-S-G>', ':ToggleTermToggleAll<CR>')
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -29,6 +31,7 @@ local function create_floating_term(cmd, keymap, id)
     cmd = cmd,
     direction = 'float',
     float_opts = { border = 'curved' },
+    count = id
   }
   return terminal
 end

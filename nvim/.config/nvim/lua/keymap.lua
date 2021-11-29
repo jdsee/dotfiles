@@ -13,9 +13,10 @@ map('n', '<C-S>', ':w<CR>')                                       -- save
 map('i', '<C-S>', '<Esc>:w<CR>a')                                 -- save
 map('n', '<C-S-S>', ':wa<CR>')                                    -- save
 map('i', '<C-S-S>', '<Esc>:wa<CR>a')                              -- save
+map('n', '<C-C>', ':noh<CR>', { nowait = true })                  -- remove visual selection
 
-map('i', '<C-C>', ':noh<CR>', { silent = true, nowait = true })   -- remove visual selection
-map('n', '<Leader>src', ':luafile $MYVIMRC<CR>')                  -- source vim config
+-- Reload NVIM (TODO: not working)
+vim.cmd[[command! Src lua require('plenary.reload').reload_module('setup', true)]]
 
 -- Navigation
 map('n', 'k', 'gk')                                               -- move up wrapped line
@@ -31,6 +32,8 @@ map('n', '<C-S-W>', '<C-W>q')                                     -- close windo
 map('n', 'tt', ':tab split<CR>')                                  -- open in new tab
 
 -- Buffers
+map('n', '<C-.>', ':bd<CR>')                                      -- close buffer
+map('n', '<C-,>', ':bd<CR>')                                      -- close buffer
 map('n', '<C-W>', ':bd<CR>')                                      -- close buffer
 
 -- Clipboard

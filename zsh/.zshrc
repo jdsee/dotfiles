@@ -10,6 +10,7 @@ source $CONFIG_HOME/zsh/completion.zsh
 source $CONFIG_HOME/zsh/functions.zsh
 
 export GPG_TTY=$(tty)                     # required by gpg-agent
+
 # OPTIONS
 setopt HIST_IGNORE_ALL_DUPS               # ignore history duplicates
 
@@ -50,3 +51,8 @@ bindkey '^[[108;6u'               autosuggest-accept
 # FZF KEYBINDINGS
 [ -f $CONFIG_HOME/zsh/.fzf.zsh ] && source $CONFIG_HOME/zsh/.fzf.zsh
 
+# Shortcut to gitignore.io API
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+
+alias luamake=/Users/jdsee/.config/nvim/lua-language-server/3rd/luamake/luamake

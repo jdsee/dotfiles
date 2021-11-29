@@ -4,3 +4,6 @@
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zcompdump
 
+
+nvim/.config/nvim/language-servers/lua-language-server
+nvim/.config/.DS_Store

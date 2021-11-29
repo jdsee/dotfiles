@@ -10,6 +10,7 @@ alias v=nvim
 
 # GIT
 alias lg=lazygit
+alias rmgi="git rm -r --cached . && git add . && git status"
 
 # GENERAL
 alias _=sudo

@@ -5,7 +5,7 @@
 
 require 'settings'
 require 'plugins'
-require 'keymaps'
+require 'keymap'
 require 'autocommands'
 
 -- Plugin Setup
@@ -16,6 +16,8 @@ require 'setup.indent-line'
 require 'setup.toggleterm'
 require 'setup.lualine'
 require 'setup.subversive'
+require 'setup.nvim-cmp'
+require 'setup.nvim-lspconfig'
 require 'nvim-autopairs'.setup()
 require 'Comment'.setup()
 require 'colorizer'.setup()

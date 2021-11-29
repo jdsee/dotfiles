@@ -31,7 +31,6 @@ opt.smartindent = true              -- auto indent on insert
 opt.autoindent = true               -- auto indent
 
 -- View
-opt.termguicolors = true            -- true color support
 opt_global.hidden = true            -- hide buffers without saving
 opt_global.showmatch = true         -- show matching brackets
 o.background = 'dark'

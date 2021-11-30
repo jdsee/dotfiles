@@ -3,14 +3,16 @@
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.shortmess:append "c"
 
+local cmp = require 'cmp'
+local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
+
 lspkind.init()
 
-local cmp = require 'cmp'
-local confirm_mapping = cmp.mapping.confirm({
-    behavior = cmp.ConfirmBehavior.Replace,
-    select = true,
-  })
+local confirm_mapping = cmp.mapping.confirm {
+  behavior = cmp.ConfirmBehavior.Replace,
+  select = true,
+}
 
 cmp.setup {
   mapping = {
@@ -36,7 +38,7 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   formatting = {

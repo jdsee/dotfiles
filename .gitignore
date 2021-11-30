@@ -2,6 +2,7 @@ zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zcompdump
 
 nvim/.config/nvim/language-servers/lua-language-server
+nvim/.config/nvim/plugin/packer_compiled.lua
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos
@@ -67,5 +68,3 @@ zsdoc/data
 
 # End of https://www.toptal.com/developers/gitignore/api/zsh
 
-
-nvim/.config/nvim/plugin/packer_compiled.lua

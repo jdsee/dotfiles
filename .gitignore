@@ -67,3 +67,5 @@ zsdoc/data
 
 # End of https://www.toptal.com/developers/gitignore/api/zsh
 
+
+nvim/.config/nvim/plugin/packer_compiled.lua

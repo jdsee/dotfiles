@@ -26,16 +26,12 @@ map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })       -- move down w
 map('n', '<Leader>e', '$')                                        -- move to end of line
 
 -- Windows / Tabs
-map('n', '<C-S-K>', '<C-W>k')                                     -- go window up
-map('n', '<C-S-J>', '<C-W>j')                                     -- go window down
-map('n', '<C-S-H>', '<C-W>h')                                     -- go window lelft
-map('n', '<C-S-L>', '<C-W>l')                                     -- go window right
 map('n', 'tt', ':tab split<CR>')                                  -- open in new tab
 
 -- Buffers
 map('n', '<C-.>', ':bd<CR>')                                      -- close buffer
 map('n', '<C-,>', ':bd<CR>')                                      -- close buffer
-map('n', '<C-S-W>', ':bd<CR>')                                      -- close buffer
+map('n', '<C-S-W>', ':bd<CR>')                                    -- close buffer
 
 -- Clipboard
 map('n', '<Leader>y', '"*y')                                      -- copy to system clipboard

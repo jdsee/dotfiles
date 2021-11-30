@@ -44,9 +44,9 @@ autoload -U colors && colors
 RPROMPT='$(check_last_exit_code)'
 
 # ZSH KEY-BINDINGS
-bindkey '^K'                      up-line-or-search up-line-or-select history-beginning-search-backward
-bindkey '^J'                      down-line-or-search down-line-or-select history-beginning-search-forward
-bindkey '^[[108;6u'               autosuggest-accept
+bindkey '^K'          up-line-or-search up-line-or-select history-beginning-search-backward
+bindkey '^J'          down-line-or-search down-line-or-select history-beginning-search-forward
+bindkey '^O'          autosuggest-accept
 
 # FZF KEYBINDINGS
 [ -f $CONFIG_HOME/zsh/.fzf.zsh ] && source $CONFIG_HOME/zsh/.fzf.zsh

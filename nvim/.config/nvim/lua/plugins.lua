@@ -30,6 +30,7 @@ return require('packer').startup(
     use { 'nvim-treesitter/nvim-treesitter' }             -- better syntax highlighting
     use { 'nvim-treesitter/nvim-treesitter-textobjects' } -- syntax aware text objects
     use { 'svermeulen/vim-subversive' }                   -- substitute with s[motion]
+    use { 'knubie/vim-kitty-navigator' }                  -- seemless navigation kitty and nvim windows
     use { 'lewis6991/gitsigns.nvim',                      -- show git changes and more
           requires = { 'nvim-lua/plenary.nvim' }          ---
         }

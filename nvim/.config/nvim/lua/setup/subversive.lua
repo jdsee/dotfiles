@@ -1,11 +1,9 @@
 -- SUBVERSIVE SETUP
 
 local cmd = vim.api.nvim_command
-local f = require 'util.functions'
-local map = f.map
 
 -- TODO: find lua solution for <plug>
-cmd([[
+cmd [[
   nmap s <plug>(SubversiveSubstitute)
   nmap ss <plug>(SubversiveSubstituteLine)
   map S <plug>(SubversiveSubstituteToEndOfLine)
@@ -17,9 +15,5 @@ cmd([[
   xmap s <plug>(SubversiveSubstitute)
   xmap p <plug>(SubversiveSubstitute)
   xmap P <plug>(SubversiveSubstitute)
-]])
-
-map('o', 'a', ':exec "normal! ggVG"<CR>')     -- whole buffer text object
-map('n', '<C-G>', '<Leader>ccwa')             -- refactor word in buffer
-map('x', '<C-G>', '<Leader>ccwa')             -- refactor word in buffer
+]]
 

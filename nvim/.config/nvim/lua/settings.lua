@@ -17,6 +17,8 @@ opt.relativenumber = true           -- line number relative to position
 opt.ignorecase = true               -- case insensitive matching
 opt.wildmode = {'list', 'longest'}  -- cli completion
 wo.cursorline = true                -- highlight current line
+wo.scrolloff = 8                    -- keep cursor away from vertical borders
+wo.sidescrolloff = 8                -- keep cursor away from horizontal borders
 
 -- Tabs and Spaces
 local indent = 2

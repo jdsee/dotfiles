@@ -29,6 +29,9 @@ return require('packer').startup(
     use { 'akinsho/toggleterm.nvim'}                      -- better inbuild terminal
     use { 'nvim-treesitter/nvim-treesitter' }             -- better syntax highlighting
     use { 'svermeulen/vim-subversive' }                   -- substitute with s[motion]
+    use { 'lewis6991/gitsigns.nvim',                      -- show git changes and more
+          requires = { 'nvim-lua/plenary.nvim' }          ---
+        }
     use { 'romgrk/barbar.nvim',                           -- show buffers in tabs
           requires = {'kyazdani42/nvim-web-devicons'}     ---
         }

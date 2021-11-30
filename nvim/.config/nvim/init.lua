@@ -18,6 +18,7 @@ require 'setup.lualine'
 require 'setup.subversive'
 require 'setup.nvim-cmp'
 require 'setup.nvim-lspconfig'
+require 'gitsigns'.setup()
 require 'nvim-autopairs'.setup()
 require 'Comment'.setup()
 require 'colorizer'.setup()

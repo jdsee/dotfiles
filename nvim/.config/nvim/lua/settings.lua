@@ -1,6 +1,6 @@
 -- | jdsee |
 -- |-------------------------------------------------------------------------------
--- NVIM OPTIONS
+-- | NVIM OPTIONS
 -- |-------------------------------------------------------------------------------
 
 local g = vim.g
@@ -15,7 +15,6 @@ opt.syntax = 'on'                   -- basic syntax highlighting
 opt.number = true                   -- line numbers
 opt.relativenumber = true           -- line number relative to position
 opt.ignorecase = true               -- case insensitive matching
-opt.termguicolors = true            -- true color support
 opt.wildmode = {'list', 'longest'}  -- cli completion
 wo.cursorline = true                -- highlight current line
 
@@ -31,8 +30,11 @@ opt.smartindent = true              -- auto indent on insert
 opt.autoindent = true               -- auto indent
 
 -- View
+opt.termguicolors = true            -- true color support
+o.background = 'dark'
+cmd [[colorscheme gruvbox]]
 opt_global.hidden = true            -- hide buffers without saving
 opt_global.showmatch = true         -- show matching brackets
-o.background = 'dark'
-cmd('colorscheme gruvbox')
-g.setinccommand = 'no-split'        -- visualize command while typing
+g.inccommand = 'nosplit'            -- visualize command while typing
+o.hlsearch = false                  -- show highlight on search
+

@@ -26,7 +26,7 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- CUSTOM TERMINALS
-local function create_floating_term(cmd, keymap, id)
+local function create_floating_term(cmd, id)
   local terminal = Terminal:new {
     cmd = cmd,
     direction = 'float',
@@ -37,23 +37,14 @@ local function create_floating_term(cmd, keymap, id)
 end
 
 -- LAZYGIT
-local lazygit = create_floating_term('lazygit', '<Leader>k', 10)
-function _lazygit_toggle()
-  lazygit:toggle()
-end
-map('n', '<Leader>k', '<cmd>lua _lazygit_toggle()<CR>')
+Lazygit = create_floating_term('lazygit', 10)
+map('n', '<Leader>k', '<cmd>lua Lazygit:toggle()<CR>')
 
 -- HTOP
-local htop = create_floating_term('htop', '<Leader>h', 12)
-function _htop_toggle()
-  htop:toggle()
-end
-map('n', '<Leader>i', '<cmd>lua _htop_toggle()<CR>')
+Htop = create_floating_term('htop', 12)
+vim.cmd [[ command! Htop execute 'lua Htop:toggle()' ]]
 
 -- CTOP
-local ctop = create_floating_term('ctop', '<Leader>c', 11)
-function _ctop_toggle()
-  ctop:toggle()
-end
-map('n', '<Leader>d', '<cmd>lua _ctop_toggle()<CR>')
+Ctop = create_floating_term('ctop', 11)
+vim.cmd [[ command! Ctop execute 'lua Ctop:toggle()' ]]
 

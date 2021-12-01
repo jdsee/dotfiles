@@ -29,8 +29,10 @@ return require('packer').startup(
     use { 'akinsho/toggleterm.nvim'}                      -- better inbuild terminal
     use { 'nvim-treesitter/nvim-treesitter' }             -- better syntax highlighting
     use { 'nvim-treesitter/nvim-treesitter-textobjects' } -- syntax aware text objects
+    use { 'wellle/targets.vim' }                          -- inner style text objects
     use { 'svermeulen/vim-subversive' }                   -- substitute with s[motion]
     use { 'knubie/vim-kitty-navigator' }                  -- seemless navigation kitty and nvim windows
+    use { 'karb94/neoscroll.nvim' }                       -- smooth scrolling
     use { 'lewis6991/gitsigns.nvim',                      -- show git changes and more
           requires = { 'nvim-lua/plenary.nvim' }          ---
         }
@@ -67,6 +69,6 @@ return require('packer').startup(
             { 'saadparwaiz1/cmp_luasnip' },
           },
         }
-  end
+end
 )
 

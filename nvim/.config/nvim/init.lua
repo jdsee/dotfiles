@@ -25,4 +25,5 @@ require 'Comment'.setup()
 require 'colorizer'.setup()
 require 'better_escape'.setup()
 require 'toggleterm'.setup()
+require 'neoscroll'.setup()
 

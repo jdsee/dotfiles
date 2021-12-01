@@ -21,9 +21,15 @@ vim.cmd [[
 ]]
 
 -- Navigation
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })       -- move up wrapped line
+map('n', 'k', "v:count == -1 ? 'gk' : 'k'", { expr = true })      -- move up wrapped line
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })       -- move down wrapped line
 map('n', '<Leader>e', '$')                                        -- move to end of line
+
+-- Text actions
+map('n', '<Leader>i', 'i_<Esc>r')                                 -- insert single character
+
+-- Files
+map ('n', 'gf', ':edit <cfile><cr>')                              -- open non existing files with gf
 
 -- Windows / Tabs
 map('n', 'tt', ':tab split<CR>')                                  -- open in new tab

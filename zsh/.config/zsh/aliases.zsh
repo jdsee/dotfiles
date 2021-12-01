@@ -5,7 +5,7 @@ alias icat="kitty +kitten icat"
 alias py="ptpython --vi"
 
 # VIM
-alias vim=nvim
+alias nvim=/usr/local/nvim-osx64/bin/nvim               # TODO: swap as soon brew released 0.6
 alias v=nvim
 
 # GIT

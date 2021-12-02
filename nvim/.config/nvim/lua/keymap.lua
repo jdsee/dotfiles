@@ -15,10 +15,18 @@ map('n', '<C-S-S>', ':wa<CR>')                                    -- save
 map('i', '<C-S-S>', '<Esc>:wa<CR>a')                              -- save
 map('n', '<C-C>', ':noh<CR>', { nowait = true })                  -- remove visual selection
 
--- Reload NVIM (TODO: not working)
-vim.cmd [[
-  command! Src lua require('plenary.reload').reload_module('setup', true)
-]]
+-- Reload neovim
+function ReloadModules()
+  package.loaded.settings = nil
+  package.loaded.plugins = nil
+  package.loaded.keymap = nil
+  package.loaded.autocommands = nil
+  package.loaded.setup = nil
+  package.loaded.lsp = nil
+  package.loaded.util = nil
+  print('Reloaded neovim config.')
+end
+map('n', '<C-_>', '<cmd>lua ReloadModules()<CR>:luafile ~/.config/nvim/init.lua<CR>')
 
 -- Navigation
 map('n', 'k', "v:count == -1 ? 'gk' : 'k'", { expr = true })      -- move up wrapped line

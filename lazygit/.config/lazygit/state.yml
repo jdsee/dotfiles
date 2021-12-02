@@ -2,5 +2,6 @@ lastupdatecheck: 0
 recentrepos:
 - /Users/jdsee/dotfiles
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- git stash pop
 hidecommandlog: false

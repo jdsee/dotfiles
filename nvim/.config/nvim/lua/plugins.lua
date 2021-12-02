@@ -44,9 +44,15 @@ return require('packer').startup(
         }
     use { 'lukas-reineke/indent-blankline.nvim' }         -- indentation visualisation
     use { 'bronson/vim-visual-star-search' }              -- use * and # in visual mode
-    use { 'Yggdroot/LeaderF',                             -- fuzzy finder
-          run = { ':LeaderfInstallCExtension' }             -- c extension for performance boost
+    -- use { 'Yggdroot/LeaderF',                             -- fuzzy finder
+    --       run = { ':LeaderfInstallCExtension' }             -- c extension for performance boost
+    --     }
+    use {'nvim-telescope/telescope-fzf-native.nvim',      -- Telecope c port for speed and better scoring
+          run = 'make'
         }
+    use { 'nvim-telescope/telescope.nvim',                -- Telescope fuzzy finder
+          requires = { {'nvim-lua/plenary.nvim'} }
+    }
     use { 'kyazdani42/nvim-tree.lua',                     -- file explorer
           requires = 'kyazdani42/nvim-web-devicons'       ---
         }

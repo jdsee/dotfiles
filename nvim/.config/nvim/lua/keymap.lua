@@ -26,7 +26,7 @@ function ReloadModules()
   package.loaded.util = nil
   print('Reloaded neovim config.')
 end
-map('n', '<C-_>', '<cmd>lua ReloadModules()<CR>:luafile ~/.config/nvim/init.lua<CR>')
+map('n', '<F5>', '<cmd>lua ReloadModules()<CR>:luafile ~/.config/nvim/init.lua<CR>')
 
 -- Navigation
 map('n', 'k', "v:count == -1 ? 'gk' : 'k'", { expr = true })      -- move up wrapped line

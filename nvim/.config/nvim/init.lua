@@ -11,7 +11,6 @@ require 'autocommands'
 -- Plugin Setup
 require 'setup.nvim-tree'
 require 'setup.telescope'
--- require 'setup.leaderf'
 require 'setup.treesitter'
 require 'setup.indent-line'
 require 'setup.toggleterm'

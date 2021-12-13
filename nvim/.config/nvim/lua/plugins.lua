@@ -33,6 +33,8 @@ return require('packer').startup(
     use { 'svermeulen/vim-subversive' }                   -- substitute with s[motion]
     use { 'knubie/vim-kitty-navigator' }                  -- seemless navigation kitty and nvim windows
     use { 'karb94/neoscroll.nvim' }                       -- smooth scrolling
+    use { 'folke/zen-mode.nvim' }                         -- distraction free zen mode
+    use { 'dhruvasagar/vim-table-mode' }                  -- markdown table support
     use { 'lewis6991/gitsigns.nvim',                      -- show git changes and more
           requires = { 'nvim-lua/plenary.nvim' }          ---
         }

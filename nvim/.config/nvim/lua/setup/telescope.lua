@@ -40,7 +40,7 @@ end
 -- Keybindings
 map('n', '<Leader>h', "<cmd>lua require('telescope.builtin').help_tags()<CR>")              -- grep current buffer
 map('n', '<Leader><Space>', "<cmd>lua require('telescope.builtin').find_files()<CR>")       -- search files
-map('n', '<Leader><CR>', "<cmd>lua M.buffers()<CR>")                                           -- search files
+map('n', '<Leader><CR>', "<cmd>lua M.buffers()<CR>")                                        -- search files
 map('n', '<Leader>b', "<cmd>lua M.current_buffer_fuzzy_find()<CR>")                         -- search files
 map('n', '<Leader>g', "<cmd>lua require('telescope.builtin').live_grep()<CR>")              -- grep everywhere
 map('n', '<Leader>f', "<cmd>lua require('telescope.builtin').file_browser()<CR>")           -- search buffers

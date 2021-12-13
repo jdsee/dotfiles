@@ -21,6 +21,7 @@ require 'setup.nvim-lspconfig'
 require 'setup.vim-kitty-navigator'
 require 'gitsigns'.setup()
 require 'nvim-autopairs'.setup()
+require 'zen-mode'.setup()
 require 'Comment'.setup()
 require 'colorizer'.setup()
 require 'better_escape'.setup()

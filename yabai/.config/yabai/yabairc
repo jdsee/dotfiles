@@ -20,15 +20,12 @@ ycmd window_topmost               on
 ycmd window_shadow                off
 
 ycmd window_opacity               on
-# yabai -m config window_opacity_duration      0.0
 ycmd active_window_opacity        1
 ycmd normal_window_opacity        0.9
 
-# currently broken on m1
-ycmd window_border                off
-
+ycmd window_border                on
 ycmd window_border_width          2
-ycmd active_window_border_color   0xff775759
+ycmd active_window_border_color   0xff928374
 ycmd normal_window_border_color   0xff555555
 
 ycmd insert_feedback_color        0xaad75f5f
@@ -58,6 +55,7 @@ yabai -m space 7 --label media
 
 # Window rules
 yrule app="^Spark$" space=mail
+yrule app="^Kitty$" space=shell
 yrule app="^Firefox$" space=www
 yrule app="^Spotify$" space=media
 

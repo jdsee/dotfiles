@@ -1,0 +1,80 @@
+# SKHD CONFIG
+
+# New Kitty window
+cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# Restart yabai
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# Toggle lists with j/k
+ctrl - j : skhd --key "down"
+ctrl - k : skhd --key "up"
+
+# Move window focus
+alt - x : yabai -m window --focus recent
+alt - z : yabai -m window --focus stack.prev
+alt - c : yabai -m window --focus stack.next
+
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Move window around
+ctrl + alt - h : yabai -m window --warp west
+ctrl + alt - j : yabai -m window --warp south
+ctrl + alt - k : yabai -m window --warp north
+ctrl + alt - l : yabai -m window --warp east
+
+# Resize window
+shift + alt - h : \
+    yabai -m window --resize left:-20:0 ; \
+    yabai -m window --resize right:-20:0
+
+shift + alt - j : \
+    yabai -m window --resize bottom:0:20 ; \
+    yabai -m window --resize top:0:20
+
+shift + alt - k : \
+    yabai -m window --resize top:0:-20 ; \
+    yabai -m window --resize bottom:0:-20
+
+shift + alt - l : \
+    yabai -m window --resize right:20:0 ; \
+    yabai -m window --resize left:20:0
+
+# Rotate window layout
+alt - tab : yabai -m space --rotate 90
+alt + shift - tab : yabai -m space --rotate 270
+
+# Move to prev/next space
+cmd + ctrl - h : yabai -m space --focus prev
+cmd + ctrl - l : yabai -m space --focus next
+
+# Toggle padding
+cmd + ctrl - 0 : yabai -m space --toggle padding
+
+# Send focused window to prev/next space
+cmd + ctrl + shift - h : \
+    yabai -m window --space prev ; \
+    yabai -m space --focus prev
+
+cmd + ctrl + shift - l : \
+    yabai -m window --space next ; \
+    yabai -m space --focus next
+
+# Move to n'th space
+cmd - 1 : yabai -m space --focus 1
+cmd - 2 : yabai -m space --focus 2
+cmd - 3 : yabai -m space --focus 3
+cmd - 4 : yabai -m space --focus 4
+cmd - 5 : yabai -m space --focus 5
+cmd - 6 : yabai -m space --focus 6
+cmd - 7 : yabai -m space --focus 7
+cmd - 8 : yabai -m space --focus 8
+cmd - 9 : yabai -m space --focus 9
+cmd - 0 : yabai -m space --focus 10
+
+# Toggle Kitty launcher
+# cmd + space : 
+

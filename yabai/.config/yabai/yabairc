@@ -1,0 +1,90 @@
+#!/usr/bin/env sh
+
+alias ycmd='yabai -m config'
+alias yrule='yabai -m rule --add'
+alias ysig='yabai -m signal --add'
+
+# Load scripting addition on startup
+# Requires configuration of sudo so that this command can be run without a password
+sudo yabai --load-sa
+ysig event=dock_did_restart action="sudo yabai --load-sa"
+
+# Global
+ycmd external_bar                 main:10:0
+
+ycmd mouse_follows_focus          off
+ycmd focus_follows_mouse          off
+
+ycmd window_placement             second_child
+ycmd window_topmost               on
+ycmd window_shadow                off
+
+ycmd window_opacity               on
+# yabai -m config window_opacity_duration      0.0
+ycmd active_window_opacity        1
+ycmd normal_window_opacity        0.9
+
+# currently broken on m1
+ycmd window_border                off
+
+ycmd window_border_width          2
+ycmd active_window_border_color   0xff775759
+ycmd normal_window_border_color   0xff555555
+
+ycmd insert_feedback_color        0xaad75f5f
+ycmd split_ratio                  0.50
+ycmd auto_balance                 on
+
+ycmd mouse_modifier               fn
+ycmd mouse_action1                move
+ycmd mouse_action2                resize
+
+# Spaces
+ycmd layout                       bsp
+ycmd top_padding                  5
+ycmd bottom_padding               15
+ycmd left_padding                 15
+ycmd right_padding                15
+ycmd window_gap                   10
+
+# Space labels
+yabai -m space 1 --label code
+yabai -m space 2 --label shell
+yabai -m space 3 --label www
+yabai -m space 4 --label desk
+yabai -m space 5 --label chat
+yabai -m space 6 --label mail
+yabai -m space 7 --label media
+
+# Window rules
+yrule app="^Spark$" space=mail
+yrule app="^Firefox$" space=www
+yrule app="^Spotify$" space=media
+
+yrule app='Finder' manage=off layer=above 
+yrule app="^System Preferences$" manage=off layer=above
+yrule title='Preferences' manage=off layer=above
+yrule title='^(Opening)' manage=off layer=above
+yrule title='Library' manage=off layer=above 
+yrule app="^Font Book$" manage=off
+yrule app="^KeyCastr$" manage=off
+yrule app="^Keycmdhain Access$" manage=off
+yrule app="^Photos$" manage=off
+yrule app="^Firefox$" title="^Opening " manage=off
+yrule app="^Firefox$" title="^Picture-in-Picture$" manage=off
+
+# kitty launcher
+yrule title='launchr' manage=off sticky=on layer=above border=off
+
+# Signals
+ysig event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
+# ysig event=window_destroyed action="echo \"destroyed window with id \$YABAI_WINDOW_ID\""
+# ysig event=space_changed action="echo \"changed space \$YABAI_RECENT_SPACE_ID -> \$YABAI_SPACE_ID\""
+# ysig event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+
+# refresh my Übersicht bar when the space changes
+yabai -m signal --add event=space_changed \
+    action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+
+echo "yabai configuration loaded.."
+

@@ -9,12 +9,14 @@ source $CONFIG_HOME/zsh/aliases.zsh
 source $CONFIG_HOME/zsh/completion.zsh
 source $CONFIG_HOME/zsh/functions.zsh
 
-export GPG_TTY=$(tty)                     # required by gpg-agent
+export GPG_TTY=$(tty)                                               # required by gpg-agent
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"                   # use bat as manpager
 
 # OPTIONS
-setopt HIST_IGNORE_ALL_DUPS               # ignore history duplicates
+setopt HIST_IGNORE_ALL_DUPS                                         # ignore history duplicates
 
 # PYTHON
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -56,3 +58,4 @@ function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;
 
 
 alias luamake=/Users/jdsee/.config/nvim/lua-language-server/3rd/luamake/luamake
+

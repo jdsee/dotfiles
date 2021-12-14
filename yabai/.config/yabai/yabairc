@@ -38,7 +38,7 @@ ycmd mouse_action2                resize
 
 # Spaces
 ycmd layout                       bsp
-ycmd top_padding                  5
+ycmd top_padding                  0
 ycmd bottom_padding               15
 ycmd left_padding                 15
 ycmd right_padding                15
@@ -46,7 +46,7 @@ ycmd window_gap                   10
 
 # Space labels
 yabai -m space 1 --label code
-yabai -m space 2 --label shell
+yabai -m space 2 --label sh
 yabai -m space 3 --label www
 yabai -m space 4 --label desk
 yabai -m space 5 --label chat
@@ -55,7 +55,7 @@ yabai -m space 7 --label media
 
 # Window rules
 yrule app="^Spark$" space=mail
-yrule app="^Kitty$" space=shell
+yrule app="^Kitty$" space=sh
 yrule app="^Firefox$" space=www
 yrule app="^Spotify$" space=media
 

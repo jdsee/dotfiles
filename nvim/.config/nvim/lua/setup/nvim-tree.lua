@@ -1,13 +1,14 @@
 -- NVIM-TREE SETUP
 
-local map = vim.api.nvim_set_keymap
+local f = require 'util.functions'
+local map = f.map
 
 require'nvim-tree'.setup {
   hijack_cursor = true,
 }
 
-map('n', '<C-F>', ':NvimTreeToggle<CR>', { noremap = true})
-map('n', '<Leader>t', ':NvimTreeToggle<CR>', { noremap = true})
-map('n', '<Leader>!', ':NvimTreeRefresh<CR>', { noremap = true})
-map('n', '<Leader>?', ':NvimTreeFindFile<CR>', { noremap = true})
+map('n', '<C-T>', ':NvimTreeToggle<CR>')
+map('n', '<Leader>t', ':NvimTreeToggle<CR>')
+map('n', '<Leader>!', ':NvimTreeRefresh<CR>')
+map('n', '<Leader>?', ':NvimTreeFindFile<CR>')
 

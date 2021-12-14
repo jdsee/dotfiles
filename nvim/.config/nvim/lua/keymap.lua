@@ -9,10 +9,6 @@ local map = f.map
 vim.g.mapleader = ' '
 
 -- General
-map('n', '<C-S>', ':w<CR>')                                       -- save
-map('i', '<C-S>', '<Esc>:w<CR>a')                                 -- save
-map('n', '<C-S-S>', ':wa<CR>')                                    -- save
-map('i', '<C-S-S>', '<Esc>:wa<CR>a')                              -- save
 map('n', '<C-C>', ':noh<CR>', { nowait = true })                  -- remove visual selection
 
 -- Reload neovim

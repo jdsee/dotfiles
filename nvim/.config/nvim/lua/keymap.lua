@@ -36,6 +36,10 @@ map('n', '<Leader>i', 'i_<Esc>r')                                 -- insert sing
 map ('n', 'gf', ':edit <cfile><cr>')                              -- open non existing files with gf
 
 -- Windows / Tabs
+map('n', '<M-K>', '<C-W>k')                                       -- go window up
+map('n', '<M-J>', '<C-W>j')                                       -- go window down
+map('n', '<M-H>', '<C-W>h')                                       -- go window lelft
+map('n', '<M-L>', '<C-W>l')                                       -- go window right
 map('n', 'tt', ':tab split<CR>')                                  -- open in new tab
 
 -- Buffers

@@ -18,7 +18,6 @@ require 'setup.lualine'
 require 'setup.subversive'
 require 'setup.nvim-cmp'
 require 'setup.nvim-lspconfig'
-require 'setup.vim-kitty-navigator'
 require 'gitsigns'.setup()
 require 'nvim-autopairs'.setup()
 require 'zen-mode'.setup()

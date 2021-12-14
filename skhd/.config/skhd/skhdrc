@@ -11,14 +11,14 @@ ctrl - j : skhd --key "down"
 ctrl - k : skhd --key "up"
 
 # Move window focus
-alt - x : yabai -m window --focus recent
-alt - z : yabai -m window --focus stack.prev
-alt - c : yabai -m window --focus stack.next
+shift + ctrl - x : yabai -m window --focus recent
+shift + ctrl - z : yabai -m window --focus stack.prev
+shift + ctrl - c : yabai -m window --focus stack.next
 
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+shift + ctrl - h : yabai -m window --focus west
+shift + ctrl - j : yabai -m window --focus south
+shift + ctrl - k : yabai -m window --focus north
+shift + ctrl - l : yabai -m window --focus east
 
 # Move window around
 ctrl + alt - h : yabai -m window --warp west
@@ -56,12 +56,20 @@ cmd + ctrl - 0 : yabai -m space --toggle padding
 
 # Send focused window to prev/next space
 cmd + ctrl + shift - h : \
-    yabai -m window --space prev ; \
+    yabai -m window --space prev; \
     yabai -m space --focus prev
 
 cmd + ctrl + shift - l : \
-    yabai -m window --space next ; \
+    yabai -m window --space next; \
     yabai -m space --focus next
+
+# Send window to monitor and follow focus
+shift + cmd + ctrl - n  : \
+    yabai -m window --display next; \
+    yabai -m display --focus next
+shift + cmd + ctrl - p  : \
+    yabai -m window --display 1; \
+    yabai -m display --focus 1
 
 # Move to n'th space
 cmd - 1 : yabai -m space --focus 1

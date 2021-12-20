@@ -34,20 +34,17 @@ return require('packer').startup(
     use { 'karb94/neoscroll.nvim' }                       -- smooth scrolling
     use { 'folke/zen-mode.nvim' }                         -- distraction free zen mode
     use { 'dhruvasagar/vim-table-mode' }                  -- markdown table support
+    use { 'lukas-reineke/indent-blankline.nvim' }         -- indentation visualisation
+    use { 'bronson/vim-visual-star-search' }              -- use * and # in visual mode
     use { 'lewis6991/gitsigns.nvim',                      -- show git changes and more
           requires = { 'nvim-lua/plenary.nvim' }          ---
         }
     use { 'romgrk/barbar.nvim',                           -- show buffers in tabs
-          requires = {'kyazdani42/nvim-web-devicons'}     ---
+          requires = { 'kyazdani42/nvim-web-devicons' }   ---
         }
     use { 'ellisonleao/gruvbox.nvim',                     -- gruvbox <3
           requires = { 'rktjmp/lush.nvim' }               ---
         }
-    use { 'lukas-reineke/indent-blankline.nvim' }         -- indentation visualisation
-    use { 'bronson/vim-visual-star-search' }              -- use * and # in visual mode
-    -- use { 'Yggdroot/LeaderF',                             -- fuzzy finder
-    --       run = { ':LeaderfInstallCExtension' }             -- c extension for performance boost
-    --     }
     use {'nvim-telescope/telescope-fzf-native.nvim',      -- Telecope c port for speed and better scoring
           run = 'make'
         }
@@ -58,10 +55,10 @@ return require('packer').startup(
           requires = 'kyazdani42/nvim-web-devicons'       ---
         }
     use { 'neovim/nvim-lspconfig' }                       -- basic language support
+    use { 'onsails/lspkind-nvim' }                        -- icons in completion list
     use { "scalameta/nvim-metals",                        -- scala language support
           requires = { "nvim-lua/plenary.nvim" }          ---
         }
-    use { 'onsails/lspkind-nvim' }                        -- icons in completion list
     use { 'RishabhRD/nvim-lsputils',                      -- default settings for lsp
           requires = { 'RishabhRD/popfix' }               ---
         }

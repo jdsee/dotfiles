@@ -23,8 +23,7 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-
+  vim.cmd [[ command! Format lua vim.lsp.buf.formatting() ]]
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -43,7 +42,6 @@ local servers = {
   -- TODO:
     -- sql
     -- java
-    -- metals
     -- groovy
     -- kotlin
     -- c#
@@ -64,6 +62,7 @@ end
 require 'lsp.lsputils'
 require 'lsp.jsonls'
 require 'lsp.sumneko-lua'
+require 'lsp.metals'
 
 -- Autoformat on save
 local cmd = vim.api.nvim_command

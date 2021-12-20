@@ -45,13 +45,12 @@ ycmd right_padding                15
 ycmd window_gap                   10
 
 # Space labels
-yabai -m space 1 --label code
+yabai -m space 1 --label desk
 yabai -m space 2 --label sh
 yabai -m space 3 --label www
-yabai -m space 4 --label desk
-yabai -m space 5 --label chat
-yabai -m space 6 --label mail
-yabai -m space 7 --label media
+yabai -m space 4 --label chat
+yabai -m space 5 --label mail
+yabai -m space 6 --label media
 
 # Window rules
 yrule app="^Spark$" space=mail

@@ -1,6 +1,6 @@
 -- | jdsee |
 -- |-------------------------------------------------------------------------------
--- | NVIM OPTIONS
+-- | NVIM SETTINGS
 -- |-------------------------------------------------------------------------------
 
 local g = vim.g
@@ -14,12 +14,18 @@ local cmd = vim.api.nvim_command
 opt.syntax = 'on'                     -- basic syntax highlighting
 opt.number = true                     -- line numbers
 opt.relativenumber = true             -- line number relative to position
+opt.wrap = false                      -- don't wrap lines
 opt.ignorecase = true                 -- case insensitive matching
 opt.wildmode = {'list', 'longest'}    -- cli completion
 opt.mouse = 'a'                       -- mouse support in all modes
 wo.cursorline = true                  -- highlight current line
 wo.scrolloff = 8                      -- keep cursor away from vertical borders
 wo.sidescrolloff = 8                  -- keep cursor away from horizontal borders
+opt_global.completeopt = {            -- completion options
+  'menu',
+  'noinsert',
+  'noselect'
+}
 
 -- Tabs and Spaces
 local indent = 2

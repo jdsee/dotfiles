@@ -5,21 +5,25 @@ alias icat="kitty +kitten icat"
 alias py="ptpython --vi"
 
 # VIM
-alias nvim=/usr/local/nvim-osx64/bin/nvim               # TODO: swap as soon brew released 0.6
-alias v=nvim
+alias nvim="/usr/local/nvim-osx64/bin/nvim"               # TODO: swap as soon brew released 0.6
+alias v="nvim"
 
 # GIT
 alias lg=lazygit
 alias rmgi="git rm -r --cached . && git add . && git status"
 
 # GENERAL
-alias _=sudo
-alias cat=bat
+alias _="sudo"
+alias cat="bat"
 alias grep="grep --color"
 alias hgrep="history 0 | grep"
 alias help="man"
 alias rm="rm -i"                                        # confirm deletion
 alias mycolors="msgcat --color=test"
+
+# DEVICES
+alias bt="blueutil"
+alias bt.toggle="blueutil -p toggle && if [[ $(bt -p) = 1 ]]; then blueutil --connect 00-1d-df-c7-c4-9e; fi"
 
 # SOURCE
 alias src.zsh="source $HOME/.zshrc"
@@ -45,7 +49,7 @@ alias ...="cd ../../"
 alias ....="cd ../../../"
 alias .....="cd ../../../../"
 alias ......="cd ../../../../../"
-alias ls=lsd
+alias ls="lsd"
 alias ll="ls -Alh"
 alias la="ls -A"
 alias ld="ls -Ad"

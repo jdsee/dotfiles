@@ -59,9 +59,6 @@ return require('packer').startup(
     use { "scalameta/nvim-metals",                        -- scala language support
           requires = { "nvim-lua/plenary.nvim" }          ---
         }
-    use { 'RishabhRD/nvim-lsputils',                      -- default settings for lsp
-          requires = { 'RishabhRD/popfix' }               ---
-        }
     use { 'L3MON4D3/LuaSnip' }                            -- luasnip
     use { 'rafamadriz/friendly-snippets' }                -- some general snippets for luasnip
     use { 'hrsh7th/nvim-cmp',                             -- lsp completion

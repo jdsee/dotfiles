@@ -36,7 +36,7 @@ opt.backspace = '2'
 opt.smarttab = true
 opt.expandtab = true                  -- use spaces as tab
 opt.smartindent = true                -- auto indent on insert
-opt.autoindent = true                 -- auto indent
+opt.autoindent = true                 ---
 
 -- View
 opt.termguicolors = true              -- true color support
@@ -46,5 +46,5 @@ cmd [[ highlight Normal guibg=none]]  -- make background transparent
 opt_global.hidden = true              -- hide buffers without saving
 opt_global.showmatch = true           -- show matching brackets
 g.inccommand = 'nosplit'              -- visualize command while typing
-o.hlsearch = false                    -- show highlight on search
+o.hlsearch = false                    -- show no highlight on search
 

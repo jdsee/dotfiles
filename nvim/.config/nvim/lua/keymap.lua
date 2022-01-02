@@ -63,4 +63,5 @@ map('v', '<A-k>', ":m '<-2<CR>gv=gv")                             -- move line u
 
 -- Custom text objects
 map('o', 'ae', ':exec "normal! ggVG"<CR>')                        -- whole buffer text object
+map('o', 'ie', ':exec "normal! ggVG"<CR>')                        ---
 

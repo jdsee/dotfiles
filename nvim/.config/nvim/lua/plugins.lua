@@ -36,6 +36,7 @@ return require('packer').startup(
     use { 'dhruvasagar/vim-table-mode' }                  -- markdown table support
     use { 'lukas-reineke/indent-blankline.nvim' }         -- indentation visualisation
     use { 'bronson/vim-visual-star-search' }              -- use * and # in visual mode
+    use { 'ggandor/lightspeed.nvim' }                     -- motions to move around quickly
     use { 'lewis6991/gitsigns.nvim',                      -- show git changes and more
           requires = { 'nvim-lua/plenary.nvim' }          ---
         }
@@ -56,6 +57,9 @@ return require('packer').startup(
         }
     use { 'neovim/nvim-lspconfig' }                       -- basic language support
     use { 'onsails/lspkind-nvim' }                        -- icons in completion list
+    use {  'ndmitchell/ghcid',                            -- haskell fast error support
+          rtp = 'plugins/nvim'                            ---
+        }
     use { "scalameta/nvim-metals",                        -- scala language support
           requires = { "nvim-lua/plenary.nvim" }          ---
         }

@@ -56,6 +56,7 @@ yabai -m space 6 --label media
 yrule app="^Spark$" space=mail
 yrule app="^Kitty$" space=sh
 yrule app="^Firefox$" space=www
+yrule app="^zathura$" space=media
 yrule app="^Spotify$" space=media
 
 yrule app='Finder' manage=off layer=above 

@@ -9,7 +9,7 @@ function M.setup(on_attach)
     settings = {
       haskell = {
         hlintOn = true,
-        formattingProvider = "fourmolu"
+        formattingProvider = "stylish-haskell"
       }
     }
   })

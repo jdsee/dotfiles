@@ -37,6 +37,7 @@ opt.smarttab = true
 opt.expandtab = true                  -- use spaces as tab
 opt.smartindent = true                -- auto indent on insert
 opt.autoindent = true                 ---
+opt.filetype.indent = true            ---
 
 -- View
 opt.termguicolors = true              -- true color support

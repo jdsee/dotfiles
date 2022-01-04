@@ -5,8 +5,8 @@ alias icat="kitty +kitten icat"
 alias py="ptpython --vi"
 
 # VIM
-alias nvim="/usr/local/nvim-osx64/bin/nvim"               # TODO: swap as soon brew released 0.6
 alias v="nvim"
+alias vi="nvim"
 
 # GIT
 alias lg=lazygit
@@ -20,6 +20,7 @@ alias hgrep="history 0 | grep"
 alias help="man"
 alias rm="rm -i"                                        # confirm deletion
 alias mycolors="msgcat --color=test"
+alias view="zathura"
 
 # DEVICES
 alias bt="blueutil"
@@ -33,6 +34,7 @@ alias src.aliases="source $HOME/.config/zsh/aliases.zsh"
 alias set.zsh="nvim $HOME/.zshrc"
 alias set.env="nvim $HOME/.zshenv"
 alias set.aliases="nvim $HOME/.config/zsh/aliases.zsh"
+alias set.functions="nvim $HOME/.config/zsh/functions.zsh"
 alias set.completion="nvim $HOME/.config/zsh/completion.zsh"
 alias set.nvim="nvim $HOME/.config/nvim/init.lua"
 alias set.kitty="nvim $HOME/.config/kitty/kitty.conf"

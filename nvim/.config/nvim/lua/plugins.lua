@@ -10,7 +10,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 vim.cmd [[
-  augroup Packer
+  augroup packer
     autocmd!
     autocmd BufWritePost init.lua PackerCompile
   augroup end

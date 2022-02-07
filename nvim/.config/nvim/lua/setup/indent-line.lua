@@ -10,7 +10,7 @@ require'indent_blankline'.setup {
 }
 
 vim.opt.list = true
-vim.opt.listchars:append('eol:␃')
+-- vim.opt.listchars:append('eol:␃')
 
 cmd[[au VimEnter * highlight IndentBlanklineContextChar guifg=#bdae93 gui=nocombine]]
 

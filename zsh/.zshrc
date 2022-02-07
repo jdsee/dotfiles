@@ -2,7 +2,7 @@
 # ZSH - CONFIG
 # ---------------------------------------------------------------------------------
 
-CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/config}
+CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 # SOURCES
 source "${ZINIT_HOME}/zinit.zsh"          # docs: https://zdharma-continuum.github.io/zinit/wiki/
 source $CONFIG_HOME/zsh/aliases.zsh
@@ -34,7 +34,7 @@ zinit light ajeetdsouza/zoxide                                      # autojump
 zinit snippet OMZ::plugins/git/git.plugin.zsh                       # git helper
 
 # PURE
-PURE_PROMPT_SYMBOL=𝚲
+# PURE_PROMPT_SYMBOL=𝚲
 PURE_NODE_ENABLED=0
 PURE_CMD_MAX_EXEC_TIME=0
 
@@ -51,7 +51,7 @@ bindkey '^J'          down-line-or-search down-line-or-select history-beginning-
 bindkey '^O'          autosuggest-accept
 
 # FZF KEYBINDINGS
-[ -f $CONFIG_HOME/zsh/.fzf.zsh ] && source $CONFIG_HOME/zsh/.fzf.zsh
+#[ -f $CONFIG_HOME/zsh/.fzf.zsh ] && source $CONFIG_HOME/zsh/.fzf.zsh
 
 # Shortcut to gitignore.io API
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}

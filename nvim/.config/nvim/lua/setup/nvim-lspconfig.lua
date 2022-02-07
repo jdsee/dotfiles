@@ -39,6 +39,7 @@ local servers = {
   'cssls',
   'html',
   'angularls',
+  'spectral',
   -- TODO:
     -- sql
     -- java

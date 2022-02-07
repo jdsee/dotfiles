@@ -18,13 +18,15 @@ alias cat="bat"
 alias grep="grep --color"
 alias hgrep="history 0 | grep"
 alias help="man"
-alias rm="rm -i"                                        # confirm deletion
+alias rm="rm -i"
 alias mycolors="msgcat --color=test"
 alias view="zathura"
 
 # DEVICES
 alias bt="blueutil"
 alias bt.toggle="blueutil -p toggle && if [[ $(bt -p) = 1 ]]; then blueutil --connect 00-1d-df-c7-c4-9e; fi"
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
 
 # SOURCE
 alias src.zsh="source $HOME/.zshrc"

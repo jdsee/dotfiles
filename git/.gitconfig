@@ -16,7 +16,5 @@
 [init]
 	defaultBranch = main
 	templatedir = /Users/jdsee/.config/git/template
-[commit]
-	gpgsign = true
 [gpg]
 	program = gpg

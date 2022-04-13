@@ -7,7 +7,7 @@ local bmap = f.bmap
 local cmd = vim.cmd
 
 require('toggleterm').setup{
-  open_mapping = [[<C-G>]],
+  -- open_mapping = [[<C-G>]],
   shading_factor = '3',
   size = 23,
   shade_terminals = true
@@ -23,7 +23,7 @@ function _G.set_terminal_keymaps()
   map('n', '<C-S-G>', ':ToggleTermToggleAll<CR>')
 end
 
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- CUSTOM TERMINALS
 local function create_floating_term(cmd, id)

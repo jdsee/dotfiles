@@ -10,6 +10,9 @@ local opt = vim.opt
 local opt_global = vim.opt_global
 local cmd = vim.api.nvim_command
 
+-- Leader: Space
+vim.g.mapleader = ' '
+
 -- General
 opt.syntax = 'on'                     -- basic syntax highlighting
 opt.number = true                     -- line numbers
@@ -38,6 +41,8 @@ opt.expandtab = true                  -- use spaces as tab
 opt.smartindent = true                -- auto indent on insert
 opt.autoindent = true                 ---
 opt.filetype.indent = true            ---
+o.splitright = true                   -- open new verticle splits on the right
+o.splitbelow = true                   -- open new horizontal splits on the bottom
 
 -- View
 opt.termguicolors = true              -- true color support

@@ -6,8 +6,6 @@
 local f = require 'util.functions'
 local map = f.map
 
-vim.g.mapleader = ' '
-
 -- General
 map('n', '<C-C>', ':noh<CR>', { nowait = true })                  -- remove visual selection
 
@@ -41,11 +39,11 @@ map('n', '<M-J>', '<C-W>j')                                       -- go window d
 map('n', '<M-H>', '<C-W>h')                                       -- go window lelft
 map('n', '<M-L>', '<C-W>l')                                       -- go window right
 map('n', 'tt', ':tab split<CR>')                                  -- open in new tab
+map('n', '<Leader>q', ':bd!<CR>')                                 -- close curent buffer
+map('t', '<C-W>', '<C-\\><C-N><C-W>')                             -- window management in terminal mode
 
 -- Buffers
-map('n', '<C-.>', ':bd<CR>')                                      -- close buffer
 map('n', '<C-,>', ':bd<CR>')                                      -- close buffer
-map('n', '<C-S-W>', ':bd<CR>')                                    -- close buffer
 
 -- Clipboard
 map('n', '<Leader>y', '"*y')                                      -- copy to system clipboard
@@ -53,7 +51,6 @@ map('n', '<Leader>p', '"*p')                                      -- paste from 
 map('n', '<Leader>s', '"*s')                                      -- substitute from system clipboard
 
 -- Refactoring
-map('x', '<Leader>r', '<Leader>siwa<CR>') -- TODO: not working    -- rename single word/term
 map('n', '<A-j>', ':m .+1<CR>==')                                 -- move line down
 map('n', '<A-k>', ':m .-2<CR>==')                                 -- move line up
 map('i', '<A-j>', '<Esc>:m .+1<CR>==gi')                          -- move line down

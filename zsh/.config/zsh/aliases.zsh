@@ -18,7 +18,6 @@ alias cat="bat"
 alias grep="grep --color"
 alias hgrep="history 0 | grep"
 alias help="man"
-alias rm="rm -i"                                        # confirm deletion
 alias mycolors="msgcat --color=test"
 alias view="zathura"
 

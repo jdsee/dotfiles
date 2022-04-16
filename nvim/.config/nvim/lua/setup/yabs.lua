@@ -36,5 +36,5 @@ require("yabs"):setup {
 }
 
 -- Keymappings
-map('n', '<Leader>rr', '<cmd>YabsTask run<CR>')
-map('n', '<Leader>ri', '<cmd>YabsTask interactive<CR>')
+map('n', '<Leader>ee', '<cmd>YabsTask run<CR>')
+map('n', '<Leader>ei', '<cmd>YabsTask interactive<CR>')

@@ -1,6 +1,10 @@
 -- JOSN LSP SETUP
 
-require'lspconfig'.jsonls.setup {
+local M = {}
+
+function M.setup(on_attach)
+  require'lspconfig'.jsonls.setup {
+    on_attach = on_attach,
     commands = {
       Format = {
         function()
@@ -8,5 +12,8 @@ require'lspconfig'.jsonls.setup {
         end
       }
     }
-}
+  }
+end
+
+return M
 

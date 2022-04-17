@@ -11,7 +11,6 @@ function(use)
 
   use 'tpope/vim-repeat'                            -- repeat plugin commands with .
   use 'tpope/vim-surround'                          -- work on surrounding characters like [({"'...
-  use 'tpope/vim-fugitive'                          -- git support
   use 'wellle/targets.vim'                          -- inner style text objects
   use 'dhruvasagar/vim-table-mode'                  -- markdown table support
   use 'bronson/vim-visual-star-search'              -- use * and # in visual mode
@@ -23,6 +22,26 @@ function(use)
   use {
     'windwp/nvim-autopairs',
     config = [[ require('nvim-autopairs').setup() ]],
+  }
+
+  --- Fugitive GIT integration
+  use {
+    'tpope/vim-fugitive',
+    disable = true,
+  }
+
+  --- GIT Difftool ---
+  use {
+    'sindrets/diffview.nvim',
+    config = [[ require('setup.diffview') ]],
+    requires = 'nvim-lua/plenary.nvim'
+  }
+
+  --- GIT integration ---
+  use {
+    'TimUntersberger/neogit',
+    config = [[ require('setup.neogit') ]],
+    requires = 'nvim-lua/plenary.nvim'
   }
 
   --- Distraction Free Zen Mode ---
@@ -68,6 +87,11 @@ function(use)
     }
   }
 
+  use {
+    'ThePrimeagen/git-worktree.nvim',
+    config = [[ require('setup.git-worktree')]]
+  }
+
   --- Nvim Build Tool ---
   use {
     'pianocomposer321/yabs.nvim',
@@ -88,7 +112,7 @@ function(use)
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
-  --- Gruvebox <3 ---
+  --- Gruvbox <3 ---
   use {
     'ellisonleao/gruvbox.nvim',
     requires = { 'rktjmp/lush.nvim' }
@@ -120,11 +144,12 @@ function(use)
   }
 
   --- Substitute with s[motion], ---
-  -- TODO: do i really need this?
-  -- use {
-  --   'svermeulen/vim-subversive',
-  --   config = [[ require('setup.vim-subversive') ]],
-  -- }
+  -- TODO: remove if not needed
+  use {
+    'svermeulen/vim-subversive',
+    config = [[ require('setup.vim-subversive') ]],
+    disable = true,
+  }
 
   --- Telescope Fuzzy Finder ---
   use {
@@ -187,12 +212,12 @@ function(use)
     rtp = 'plugins/nvim'
   }
 
+  --- Testrunner ---
   use {
     'rcarriga/vim-ultest',
     requires = { 'vim-test/vim-test' },
     run = ':UpdateRemotePlugins'
   }
 
-end
-)
+end)
 

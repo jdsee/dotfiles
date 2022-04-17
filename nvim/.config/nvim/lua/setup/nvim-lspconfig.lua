@@ -1,28 +1,24 @@
 -- NVIM LSPCONFIG
 
-local on_attach = function(_, bufnr)
+local map = require('util.functions').map
 
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
+local on_attach = function()
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local opts = { noremap = true, silent = true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-K>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<Leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<Leader>rf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf_set_keymap('n', '<M-CR>', '<cmd>lua vim.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', '<Leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  local opts = { buffer = true }
+  map('n', 'gD', vim.lsp.buf.declaration, opts)
+  map('n', 'gd', vim.lsp.buf.definition, opts)
+  map('n', 'gi', vim.lsp.buf.implementation, opts)
+  map('n', 'gt', vim.lsp.buf.type_definition, opts)
+  map('n', 'gr', vim.lsp.buf.references, opts)
+  map('n', 'K', vim.lsp.buf.hover, opts)
+  map('n', '<C-K>', vim.lsp.buf.signature_help, opts)
+  map('n', '<Leader>rr', vim.lsp.buf.rename, opts)
+  map('n', '<Leader>rf', vim.lsp.buf.formatting, opts)
+  map('n', '<Leader>e', vim.diagnostic.open_float, opts)
+  map('n', '[d', vim.diagnostic.goto_prev, opts)
+  map('n', ']d', vim.diagnostic.goto_next, opts)
   vim.cmd [[ command! Format lua vim.lsp.buf.formatting()<CR> ]]
 end
 
@@ -30,7 +26,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Automatic language server setup
-local servers = {
+local auto_setup_servers = {
   'pyright',
   'bashls',
   'clangd',
@@ -49,8 +45,8 @@ local servers = {
 
 local nvim_lsp = require 'lspconfig'
 
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+for _, server in ipairs(auto_setup_servers) do
+  nvim_lsp[server].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
@@ -59,11 +55,17 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Manual language server setup
--- require 'lsp.lsputils'
-require 'lsp.jsonls'
-require 'lsp.sumneko-lua'
-require 'lsp.metals'
-require('lsp.hls').setup(on_attach)
+local manual_setup_servers = {
+  'lsp.jsonls',
+  'lsp.sumneko-lua',
+  'lsp.metals',
+  'lsp.hls'
+}
+
+for _, server in ipairs(manual_setup_servers) do
+  require(server).setup(on_attach)
+end
+
 
 -- Autoformat on save
 local cmd = vim.api.nvim_command

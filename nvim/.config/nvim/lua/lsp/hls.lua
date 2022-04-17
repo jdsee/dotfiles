@@ -3,7 +3,7 @@
 local M = {}
 
 function M.setup(on_attach)
-  require('lspconfig').hls.setup({
+  require('lspconfig').hls.setup {
     on_attach = on_attach,
     root_dir = vim.loop.cwd,
     settings = {
@@ -12,7 +12,7 @@ function M.setup(on_attach)
         formattingProvider = "stylish-haskell"
       }
     }
-  })
+  }
 end
 
 return M

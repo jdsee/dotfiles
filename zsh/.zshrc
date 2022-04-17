@@ -23,6 +23,8 @@ eval "$(pyenv virtualenv-init -)"
 # ZOXIDE
 eval "$(zoxide init zsh --cmd j)"
 
+set -o vi                                                           # enable vim mode
+
 # PLUGINS
 zinit ice wait'!0'
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'   # pure theme
@@ -34,7 +36,7 @@ zinit light ajeetdsouza/zoxide                                      # autojump
 zinit snippet OMZ::plugins/git/git.plugin.zsh                       # git helper
 
 # PURE
-PURE_PROMPT_SYMBOL=𝚲
+# PURE_PROMPT_SYMBOL=𝚲
 PURE_NODE_ENABLED=0
 PURE_CMD_MAX_EXEC_TIME=0
 

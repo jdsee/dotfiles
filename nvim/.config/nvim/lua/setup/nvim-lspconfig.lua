@@ -68,9 +68,14 @@ end
 
 
 -- Autoformat on save
-local cmd = vim.api.nvim_command
-cmd [[
-  autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-  autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-]]
+local autocmd = vim.api.nvim_create_autocmd
+local formatting_sync = function()
+  vim.lsp.buf.formatting_sync(nil, 100)
+end
+
+autocmd(
+  'BufWritePre', {
+    pattern = { '*.js', '*.jsx', '*.lua' },
+    callback = formatting_sync,
+  })
 

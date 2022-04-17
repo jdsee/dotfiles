@@ -2,12 +2,14 @@
 -- https://github.com/lewis6991/gitsigns.nvim#usage
 
 local map = require('util.functions').map
+local gs = require('gitsigns')
 
-require('gitsigns').setup()
+gs.setup()
 
-map('n', '<Leader>gb', '<cmd>Gitsigns blame_line<CR>')
-map('n', '<Leader>gs', '<cmd>Gitsigns stage_hunk<CR>')
-map('n', '<Leader>gu', '<cmd>Gitsigns reset_hunk<CR>')
-map('n', '<Leader>gn', '<cmd>Gitsigns next_hunk<CR>')
-map('n', '<Leader>gp', '<cmd>Gitsigns prev_hunk<CR>')
+map('n', '<Leader>g?', function() gs.blame_line{full=true} end)
+map('n', '<Leader>gs', gs.stage_hunk)
+map('n', '<Leader>gu', gs.reset_hunk)
+map('n', '<Leader>gn', gs.next_hunk)
+map('n', '<Leader>gp', gs.prev_hunk)
+map('n', '<Leader>gd', function() gs.diffthis('~') end)
 

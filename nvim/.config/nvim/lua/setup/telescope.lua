@@ -41,14 +41,13 @@ function M.lsp_code_actions()
 end
 
 -- Keybindings
-map('n', '<Leader><CR>', "<cmd>lua M.buffers()<CR>")                                        -- search buffers
-map('n', '<Leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>")            -- search files
-map('n', '<Leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>")             -- grep everywhere
-map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>")             -- search help tags
-map('n', '<Leader>fc', "<cmd>lua require('telescope.builtin').commands()<CR>")              -- search command history
-map('n', '<Leader>/', "<cmd>lua M.current_buffer_fuzzy_find()<CR>")                         -- grep current buffer
-map('n', '<Leader>:', "<cmd>lua require('telescope.builtin').command_history()<CR>")        -- search command history
-
--- LSP Keybindings
-map('n', '<CR>', "<cmd>lua M.lsp_code_actions()<CR>")                                       -- show lsp code actions
-
+map('n', '<Leader><CR>', M.buffers)                   -- search buffers
+map('n', '<Leader>ff', builtin.find_files)            -- search files
+map('n', '<Leader>fg', builtin.live_grep)             -- grep everywhere
+map('n', '<Leader>fh', builtin.help_tags)             -- search help tags
+map('n', '<Leader>gb', builtin.git_branches)          -- search git branches
+map('n', '<Leader>fc', builtin.commands)              -- search command history
+map('n', '<Leader>/', M.current_buffer_fuzzy_find)    -- grep current buffer
+map('n', '<Leader>:', builtin.command_history)        -- search command history
+map('n', '<CR>', M.lsp_code_actions)                  -- search code actions in telescope
+map('n', '<Leader>fd', builtin.diagnostics)           -- search errors from lsp

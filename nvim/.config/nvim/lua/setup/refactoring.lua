@@ -2,27 +2,39 @@
 ---- https://github.com/ThePrimeagen/refactoring.nvim#configuration
 
 local map = require('util.functions').map
+local refactoring = require 'refactoring'
+local telescope = require 'telescope'
 
-require('refactoring').setup()
-require('telescope').load_extension('refactoring')
+refactoring.setup()
+telescope.load_extension('refactoring')
 
-map('v', '<Leader>re', [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR> ]])
-map('v', '<Leader>ref', [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR> ]])
-map('v', '<Leader>ri', [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR> ]])
+local M = {}
 
-map(
-	'n',
-	'<leader>rp',
-	":lua require('refactoring').debug.printf({below = false})<CR>"
-)
+function M.extract_function()
+  refactoring.refactor('Extract Function')
+end
 
-map("v", "<leader>rv", ":lua require('refactoring').debug.print_var({})<CR>")
-map("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>")
+function M.extract_function_to_file()
+  refactoring.refactor('Extract Function To File')
+end
+
+function M.inline_variable()
+  refactoring.refactor('Inline Variable')
+end
+
+function M.debug_print()
+  refactoring.debug.printf { below = false }
+end
+
+map('v', '<Leader>re', M.extract_function)
+map('v', '<Leader>ref', M.extract_function_to_file)
+map('v', '<Leader>ri', M.inline_variable)
+
+map( 'n', '<Leader>rp', M.debug_print)
+
+map("v", "<Leader>rv",refactoring.debug.print_var)
+map("n", "<Leader>rc",refactoring.debug.cleanup)
 
 -- Telescope extension
-map(
-	"v",
-	"<leader>rm",
-	"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>"
-)
+map( "v", "<Leader>rm", telescope.extensions.refactoring.refactors)
 

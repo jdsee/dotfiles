@@ -9,15 +9,16 @@ local function extend_opt(lh, rh)
 end
 
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
+  local options = { silent = true }
   options = extend_opt(opts, options)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
+
 local function bmap(mode, lhs, rhs, opts)
-  local options = { noremap = true }
+  local options = { silent = true, buffer = true }
   options = extend_opt(opts, options)
-  vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, options)
+  map(mode, lhs, rhs, opts)
 end
 
 return {

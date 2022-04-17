@@ -6,8 +6,8 @@ local map = require('util.functions').map
 vim.g.floaterm_wintype = 'split'
 vim.g.floaterm_height = 0.4
 
-vim.cmd[[ hi Floaterm guibg=#1d2021 ]]
-vim.cmd[[ hi FloatermNC guibg=#282828 ]]
+vim.cmd [[ hi Floaterm guibg=#1d2021 ]]
+-- vim.cmd [[ hi FloatermNC guibg=#282828 ]]
 
 -- Keymappings
 vim.g.floaterm_keymap_new    = '<Leader>tn'

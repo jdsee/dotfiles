@@ -2,7 +2,8 @@
 
 require 'lualine'.setup {
   options = {
-    theme = 'gruvbox'
+    theme = 'gruvbox',
+    globalstatus = true,
   }
 }
 

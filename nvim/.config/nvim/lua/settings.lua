@@ -26,6 +26,7 @@ wo.scrolloff = 8                      -- keep cursor away from vertical borders
 wo.sidescrolloff = 8                  -- keep cursor away from horizontal borders
 opt_global.completeopt = {            -- completion options
   'menu',
+  'menuone',
   'noinsert',
   'noselect'
 }
@@ -43,7 +44,6 @@ opt.autoindent = true                 ---
 opt.filetype.indent = true            ---
 o.splitright = true                   -- open new verticle splits on the right
 o.splitbelow = true                   -- open new horizontal splits on the bottom
-o.laststatus = 3                      -- enable gloabl status line
 
 -- View
 opt.termguicolors = true              -- true color support

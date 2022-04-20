@@ -39,6 +39,7 @@ return require('packer').startup(
     use { 'ggandor/lightspeed.nvim' }                     -- motions to move around quickly
     use { 'tpope/vim-fugitive' }                          -- git support
     use { 'ThePrimeagen/vim-be-good'}                     -- game to practice vim movements
+    use { 'marioortizmanero/adoc-pdf-live.nvim' }         -- asciiDoc live view
     use { 'lewis6991/gitsigns.nvim',                      -- show git changes and more
           requires = { 'nvim-lua/plenary.nvim' }          ---
         }

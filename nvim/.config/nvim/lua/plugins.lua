@@ -27,7 +27,7 @@ function(use)
   --- Fugitive GIT integration
   use {
     'tpope/vim-fugitive',
-    disable = true,
+    disable = false,
   }
 
   --- GIT Difftool ---
@@ -38,9 +38,11 @@ function(use)
   }
 
   --- GIT integration ---
+  -- TODO: decide between neogit and fugitive
   use {
     'TimUntersberger/neogit',
-    config = [[ require('setup.neogit') ]],
+    disable = true,
+    -- config = [[ require('setup.neogit') ]],
     requires = 'nvim-lua/plenary.nvim'
   }
 
@@ -66,6 +68,13 @@ function(use)
   use {
     'karb94/neoscroll.nvim',
     config = [[ require('neoscroll').setup() ]],
+  }
+
+  --- Markdown Browser Preview ---
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && yarn install',
+    cmd = 'MarkdownPreview'
   }
 
   --- Treesitter: Better Syntax Highlighting ---
@@ -112,10 +121,13 @@ function(use)
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
-  --- Gruvbox <3 ---
+  --- Colorschemes ---
   use {
-    'ellisonleao/gruvbox.nvim',
-    requires = { 'rktjmp/lush.nvim' }
+    { 'ellisonleao/gruvbox.nvim' },
+    { 'sainnhe/gruvbox-material' },
+    { 'Mofiqul/adwaita.nvim' },
+    { 'rebelot/kanagawa.nvim' },
+    { 'folke/tokyonight.nvim' },
   }
 
   --- File Tree ---
@@ -200,6 +212,7 @@ function(use)
     requires = {
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
       { 'hrsh7th/cmp-nvim-lua' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'saadparwaiz1/cmp_luasnip' },

@@ -20,3 +20,9 @@
 	gpgsign = true
 [gpg]
 	program = gpg
+[mergetool "fugitive"]
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool "diffview.nvim"]
+	cmd = nvim -f -c \"DiffviewOpen\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[merge]
+	tool = fugitive

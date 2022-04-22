@@ -34,15 +34,15 @@ shift + alt - h : \
     yabai -m window --resize left:-20:0 ; \
     yabai -m window --resize right:-20:0
 
-shift + alt - j : \
+shift + cmd - j : \
     yabai -m window --resize bottom:0:20 ; \
     yabai -m window --resize top:0:20
 
-shift + alt - k : \
+shift + cmd - k : \
     yabai -m window --resize top:0:-20 ; \
     yabai -m window --resize bottom:0:-20
 
-shift + alt - l : \
+shift + cmd - l : \
     yabai -m window --resize right:20:0 ; \
     yabai -m window --resize left:20:0
 

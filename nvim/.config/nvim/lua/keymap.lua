@@ -6,9 +6,6 @@
 local f = require 'util.functions'
 local map = f.map
 
--- General
-map('n', '<C-C>', ':noh<CR>', { nowait = true })                  -- remove visual selection
-
 -- Reload neovim
 function ReloadModules()
   package.loaded.settings = nil
@@ -22,13 +19,18 @@ function ReloadModules()
 end
 map('n', '<F5>', '<cmd>lua ReloadModules()<CR>:luafile ~/.config/nvim/init.lua<CR>')
 
+-- General
+map('n', '<C-C>', ':noh<CR>', { nowait = true })                  -- remove visual selection
+
 -- Navigation
 map('n', 'k', "v:count == -1 ? 'gk' : 'k'", { expr = true })      -- move up wrapped line
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })       -- move down wrapped line
-map('n', '<Leader>e', '$')                                        -- move to end of line
 
 -- Text actions
 map('n', '<Leader>i', 'i_<Esc>r')                                 -- insert single character
+map('n', '<BS>', '0D')                                            -- delete whole line content
+map('n', '<Leader>o', 'o<Esc>')                                   -- insert line below in normal mode
+map('n', '<Leader>O', 'O<Esc>')                                   -- insert line above in normal mode
 
 -- Files
 map ('n', 'gf', ':edit <cfile><cr>')                              -- open non existing files with gf
@@ -51,12 +53,12 @@ map('n', '<Leader>p', '"*p')                                      -- paste from 
 map('n', '<Leader>s', '"*s')                                      -- substitute from system clipboard
 
 -- Refactoring
-map('n', '<A-j>', ':m .+1<CR>==')                                 -- move line down
-map('n', '<A-k>', ':m .-2<CR>==')                                 -- move line up
-map('i', '<A-j>', '<Esc>:m .+1<CR>==gi')                          -- move line down
-map('i', '<A-k>', ':m .+1<CR>==')                                 -- move line up
-map('v', '<A-j>', ":m '>+1<CR>gv=gv")                             -- move line down
-map('v', '<A-k>', ":m '<-2<CR>gv=gv")                             -- move line up
+map('n', '<A-S-j>', ':m .+1<CR>==')                               -- move line down
+map('n', '<A-S-k>', ':m .-2<CR>==')                               -- move line up
+map('i', '<A-S-j>', '<Esc>:m .+1<CR>==gi')                        -- move line down
+map('i', '<A-S-k>', ':m .+1<CR>==')                               -- move line up
+map('v', '<A-S-j>', ":m '>+1<CR>gv=gv")                           -- move line down
+map('v', '<A-S-k>', ":m '<-2<CR>gv=gv")                           -- move line up
 
 -- Custom text objects
 map('o', 'ae', ':exec "normal! ggVG"<CR>')                        -- whole buffer text object

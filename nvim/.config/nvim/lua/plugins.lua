@@ -232,5 +232,18 @@ function(use)
     run = ':UpdateRemotePlugins'
   }
 
+  use {
+    'mfussenegger/nvim-dap',
+    config = [[ require('setup.nvim-dap') ]],
+    requires = {
+      { 'nvim-telescope/telescope-dap.nvim' },
+      { 'theHamsta/nvim-dap-virtual-text' },
+      { 'rcarriga/nvim-dap-ui' },
+      { 'jbyuki/one-small-step-for-vimkind' },
+      { 'mfussenegger/nvim-dap-python' },
+    }
+  }
+
+
 end)
 

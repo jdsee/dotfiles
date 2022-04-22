@@ -195,7 +195,7 @@ function(use)
   --- Native LSP configuration ---
   use {
     'neovim/nvim-lspconfig',
-    config = [[ require('setup.nvim-lspconfig') ]],
+    config = [[ require('setup.lsp.nvim-lspconfig') ]],
   }
 
   --- Scala LSP ---

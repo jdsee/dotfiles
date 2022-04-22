@@ -56,10 +56,10 @@ end
 
 -- Manual language server setup
 local manual_setup_servers = {
-  'lsp.jsonls',
-  'lsp.sumneko-lua',
-  'lsp.metals',
-  'lsp.hls'
+  'setup.lsp.jsonls',
+  'setup.lsp.sumneko-lua',
+  'setup.lsp.metals',
+  'setup.lsp.hls'
 }
 
 for _, server in ipairs(manual_setup_servers) do

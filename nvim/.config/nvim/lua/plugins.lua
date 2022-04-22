@@ -126,9 +126,13 @@ function(use)
   use {
     { 'ellisonleao/gruvbox.nvim' },
     { 'sainnhe/gruvbox-material' },
+    { 'sainnhe/everforest' },
     { 'Mofiqul/adwaita.nvim' },
     { 'rebelot/kanagawa.nvim' },
     { 'folke/tokyonight.nvim' },
+    { 'shaunsingh/nord.nvim' },
+    { 'EdenEast/nightfox.nvim' },
+    { "catppuccin/nvim", as = "catppuccin" },
   }
 
   --- File Tree ---

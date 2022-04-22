@@ -19,14 +19,13 @@ opt.number = true                     -- line numbers
 opt.relativenumber = true             -- line number relative to position
 opt.wrap = false                      -- don't wrap lines
 opt.ignorecase = true                 -- case insensitive matching
-opt.wildmode = {'list', 'longest'}    -- cli completion
+-- opt.wildmode = { 'list', 'full' }     -- cli completion
 opt.mouse = 'a'                       -- mouse support in all modes
 wo.cursorline = true                  -- highlight current line
 wo.scrolloff = 8                      -- keep cursor away from vertical borders
 wo.sidescrolloff = 8                  -- keep cursor away from horizontal borders
 opt_global.completeopt = {            -- completion options
   'menu',
-  'menuone',
   'noinsert',
   'noselect'
 }

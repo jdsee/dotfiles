@@ -82,6 +82,7 @@ function(use)
     {
       'nvim-treesitter/nvim-treesitter',
       config = [[ require('setup.nvim-treesitter') ]],
+      run = ':TSUpdate'
     },
     { 'nvim-treesitter/nvim-treesitter-textobjects' }
   }

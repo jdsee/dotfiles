@@ -10,8 +10,8 @@ vim.cmd [[ hi Floaterm guibg=#1d2021 ]]
 -- vim.cmd [[ hi FloatermNC guibg=#282828 ]]
 
 -- Keymappings
-vim.g.floaterm_keymap_new    = '<Leader>tn'
-vim.g.floaterm_keymap_kill   = '<Leader>tk'
+vim.g.floaterm_keymap_new    = '<C-t>n'
+vim.g.floaterm_keymap_kill   = '<C-t>k'
 vim.g.floaterm_keymap_toggle = '<C-G>'
 vim.g.floaterm_keymap_next   = '<C-N>'
 vim.g.floaterm_keymap_prev   = '<C-P>'
@@ -20,7 +20,12 @@ map('n', '<Leader>rs', '<cmd>FloatermSend<CR>')
 
 -- Custom Terminals
 local function createFloatTerm(vimCommand, command, mapping)
-  vim.cmd("command! "..vimCommand.." FloatermNew --wintype=float --height=0.9 --width=0.9 --name="..command.." --autoclose=2 "..command)
+  vim.api.nvim_create_user_command(
+    vimCommand,
+    "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 --name="..command.." --autoclose=2 "..command.."<CR>",
+    {}
+  )
+  -- vim.cmd("command! "..vimCommand.." FloatermNew --wintype=float --height=0.9 --width=0.9 --name="..command.." --autoclose=2 "..command)
   if mapping ~= nil then
     map('n', mapping, '<cmd>'..vimCommand..'<CR>')
   end

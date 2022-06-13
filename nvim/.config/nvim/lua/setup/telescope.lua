@@ -40,14 +40,25 @@ function M.lsp_code_actions()
   builtin.lsp_code_actions(themes.get_cursor())
 end
 
+function M.find_all_files()
+  builtin.find_files { hidden = true }
+end
+
+function M.find_nvim_files()
+  builtin.find_files {
+    opt = { cwd = "$XDG_HOME/neovim" },
+    hidden = true }
+end
+
 -- Keybindings
-map('n', '<Leader><CR>', M.buffers)                   -- search buffers
-map('n', '<Leader>ff', builtin.find_files)            -- search files
-map('n', '<Leader>fg', builtin.live_grep)             -- grep everywhere
-map('n', '<Leader>fh', builtin.help_tags)             -- search help tags
-map('n', '<Leader>gb', builtin.git_branches)          -- search git branches
-map('n', '<Leader>fc', builtin.commands)              -- search command history
-map('n', '<Leader>/', M.current_buffer_fuzzy_find)    -- grep current buffer
-map('n', '<Leader>:', builtin.command_history)        -- search command history
-map('n', '<CR>', M.lsp_code_actions)                  -- search code actions in telescope
-map('n', '<Leader>fd', builtin.diagnostics)           -- search errors from lsp
+map('n', '<Leader><CR>', M.buffers)                                         -- search buffers
+map('n', '<Leader>ff', M.find_all_files)                                    -- search files
+map('n', '<Leader>fn', M.find_nvim_files)                                   -- search files in neovim config
+map('n', '<Leader>fg', builtin.live_grep)                                   -- grep everywhere
+map('n', '<Leader>fh', builtin.help_tags)                                   -- search help tags
+map('n', '<Leader>gb', builtin.git_branches)                                -- search git branches
+map('n', '<Leader>fc', builtin.commands)                                    -- search command history
+map('n', '<Leader>/', M.current_buffer_fuzzy_find)                          -- grep current buffer
+map('n', '<Leader>:', builtin.command_history)                              -- search command history
+map('n', '<CR>', M.lsp_code_actions)                                        -- search code actions in telescope
+map('n', '<Leader>fd', builtin.diagnostics)                                 -- search errors from lsp

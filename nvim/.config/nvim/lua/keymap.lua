@@ -26,6 +26,10 @@ map('n', '<C-C>', ':noh<CR>', { nowait = true })                  -- remove visu
 map('n', 'k', "v:count == -1 ? 'gk' : 'k'", { expr = true })      -- move up wrapped line
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })       -- move down wrapped line
 
+-- TODO
+-- nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'    -- add relative jump to jumplist
+-- nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'    -- add relative jump to jumplist
+
 -- Text actions
 map('n', '<Leader>i', 'i_<Esc>r')                                 -- insert single character
 map('n', '<BS>', '0D')                                            -- delete whole line content
@@ -33,7 +37,7 @@ map('n', '<Leader>o', 'o<Esc>')                                   -- insert line
 map('n', '<Leader>O', 'O<Esc>')                                   -- insert line above in normal mode
 
 -- Files
-map ('n', 'gf', ':edit <cfile><cr>')                              -- open non existing files with gf
+map('n', 'gf', ':edit <cfile><cr>')                               -- open non existing files with gf
 
 -- Windows / Tabs
 map('n', '<M-K>', '<C-W>k')                                       -- go window up
@@ -43,6 +47,12 @@ map('n', '<M-L>', '<C-W>l')                                       -- go window r
 map('n', 'tt', ':tab split<CR>')                                  -- open in new tab
 map('n', '<Leader>q', ':bd!<CR>')                                 -- close curent buffer
 map('t', '<C-W>', '<C-\\><C-N><C-W>')                             -- window management in terminal mode
+
+-- Quickfixlist / Locationlist
+map('n', '<Leader>cn', '<CMD>cn<CR>')                             -- go to next quickfix entry
+map('n', '<Leader>cp', '<CMD>cp<CR>')                             -- go to next quickfix entry
+map('n', '<Leader>cN', '<CMD>cn<CR>')                             -- go to next quickfix entry
+map('n', '<Leader>cP', '<CMD>cp<CR>')                             -- go to next quickfix entry
 
 -- Buffers
 map('n', '<C-,>', ':bd<CR>')                                      -- close buffer
@@ -61,6 +71,6 @@ map('v', '<A-S-j>', ":m '>+1<CR>gv=gv")                           -- move line d
 map('v', '<A-S-k>', ":m '<-2<CR>gv=gv")                           -- move line up
 
 -- Custom text objects
-map('o', 'ae', ':exec "normal! ggVG"<CR>')                        -- whole buffer text object
-map('o', 'ie', ':exec "normal! ggVG"<CR>')                        ---
+map('o', 'af', ':exec "normal! ggVG"<CR>')                        -- whole buffer text object
+map('o', 'if', ':exec "normal! ggVG"<CR>')                        ---
 

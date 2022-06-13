@@ -14,9 +14,7 @@ function(use)
   use 'wellle/targets.vim'                          -- inner style text objects
   use 'dhruvasagar/vim-table-mode'                  -- markdown table support
   use 'bronson/vim-visual-star-search'              -- use * and # in visual mode
-  use 'ggandor/lightspeed.nvim'                     -- motions to move around quickly
   use 'ThePrimeagen/vim-be-good'                    -- game to practice vim movements
-  use 'onsails/lspkind-nvim'                        -- icons in completion list
 
   --- Autopair Brackets ---
   use {
@@ -34,15 +32,6 @@ function(use)
   use {
     'sindrets/diffview.nvim',
     config = [[ require('setup.diffview') ]],
-    requires = 'nvim-lua/plenary.nvim'
-  }
-
-  --- GIT integration ---
-  -- TODO: decide between neogit and fugitive
-  use {
-    'TimUntersberger/neogit',
-    disable = true,
-    -- config = [[ require('setup.neogit') ]],
     requires = 'nvim-lua/plenary.nvim'
   }
 
@@ -109,6 +98,13 @@ function(use)
     requires = { 'nvim-lua/plenary.nvim' }
   }
 
+  --- Code Runner ---
+  use {
+    'michaelb/sniprun',
+    config = [[ require('setup.sniprun') ]],
+    run = 'bash ./install.sh',
+  }
+
   --- GIT Marker ---
   use {
     'lewis6991/gitsigns.nvim',
@@ -132,7 +128,6 @@ function(use)
     { 'folke/tokyonight.nvim' },
     { 'shaunsingh/nord.nvim' },
     { 'EdenEast/nightfox.nvim' },
-    { "catppuccin/nvim", as = "catppuccin" },
   }
 
   --- File Tree ---
@@ -194,20 +189,11 @@ function(use)
 
   --- Native LSP configuration ---
   use {
-    'neovim/nvim-lspconfig',
-    config = [[ require('setup.lsp.nvim-lspconfig') ]],
-  }
-
-  --- Scala LSP ---
-  use {
-    'scalameta/nvim-metals',
-    requires = { "nvim-lua/plenary.nvim" }
-  }
-
-  --- Snippets ---
-  use {
-    { 'L3MON4D3/LuaSnip' },
-    { 'rafamadriz/friendly-snippets' },
+    { 'williamboman/nvim-lsp-installer' },
+    { 'neovim/nvim-lspconfig',
+      config = [[ require('setup.lsp.nvim-lspconfig') ]],
+    },
+    { 'onsails/lspkind-nvim' },
   }
 
   --- LSP Completion ---
@@ -224,6 +210,23 @@ function(use)
     }
   }
 
+  --- Snippets ---
+  use {
+    { 'L3MON4D3/LuaSnip' },
+    { 'rafamadriz/friendly-snippets' },
+  }
+
+  --- Scala LSP ---
+  use {
+    'scalameta/nvim-metals',
+    requires = { "nvim-lua/plenary.nvim" }
+  }
+
+  --- Latex LSP ---
+  use {
+    'lervag/vimtex',
+    config = [[ require('setup.vimtex') ]]
+  }
   --- Better Error Support for Haskell ---
   use {
     'ndmitchell/ghcid',
@@ -234,9 +237,11 @@ function(use)
   use {
     'rcarriga/vim-ultest',
     requires = { 'vim-test/vim-test' },
-    run = ':UpdateRemotePlugins'
+    run = ':UpdateRemotePlugins',
+    config = [[ require('setup.ultest') ]]
   }
 
+  --- Debug Adapter Protocol ---
   use {
     'mfussenegger/nvim-dap',
     config = [[ require('setup.nvim-dap') ]],

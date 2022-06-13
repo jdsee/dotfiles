@@ -2,6 +2,8 @@
 
 local map = require('util.functions').map
 
+require("nvim-lsp-installer").setup()
+
 local on_attach = function()
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -35,12 +37,8 @@ local auto_setup_servers = {
   'cssls',
   'html',
   'angularls',
-  -- TODO:
-    -- sql
-    -- java
-    -- groovy
-    -- kotlin
-    -- c#
+  'racket_langserver',
+  'texlab',
 }
 
 local nvim_lsp = require 'lspconfig'

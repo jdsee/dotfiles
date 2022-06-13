@@ -7,4 +7,5 @@ require 'settings'
 require 'plugins'
 require 'keymap'
 require 'autocommands'
+require 'globals'
 

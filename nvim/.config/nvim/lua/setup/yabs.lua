@@ -31,6 +31,21 @@ require("yabs"):setup {
       },
     },
 
+    -- Scheme
+    scheme = {
+      tasks = {
+        run = {
+          command = "scheme --quiet < %",
+          output = "echo",
+        },
+        interactive = {
+          command = ":FloatermNew --name=repl scheme --interactive < %",
+          output = "terminal",
+          type = "vim",
+        },
+      },
+    },
+
     -- Others
   },
 }

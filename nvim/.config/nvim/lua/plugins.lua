@@ -11,6 +11,7 @@ function(use)
 
   use 'tpope/vim-repeat'                            -- repeat plugin commands with .
   use 'tpope/vim-surround'                          -- work on surrounding characters like [({"'...
+  use 'tpope/vim-fugitive'                          -- git integration
   use 'wellle/targets.vim'                          -- inner style text objects
   use 'dhruvasagar/vim-table-mode'                  -- markdown table support
   use 'bronson/vim-visual-star-search'              -- use * and # in visual mode
@@ -22,23 +23,11 @@ function(use)
     config = [[ require('nvim-autopairs').setup() ]],
   }
 
-  --- Fugitive GIT integration
-  use {
-    'tpope/vim-fugitive',
-    disable = false,
-  }
-
   --- GIT Difftool ---
   use {
     'sindrets/diffview.nvim',
     config = [[ require('setup.diffview') ]],
     requires = 'nvim-lua/plenary.nvim'
-  }
-
-  --- Distraction Free Zen Mode ---
-  use {
-    'folke/zen-mode.nvim',
-    config = [[ require('zen-mode').setup() ]],
   }
 
   --- Comment out Code with gc[motion] ---
@@ -132,9 +121,14 @@ function(use)
 
   --- File Tree ---
   use {
-    'kyazdani42/nvim-tree.lua',
-    config = [[ require('setup.nvim-tree') ]],
-    requires = 'kyazdani42/nvim-web-devicons'
+    'nvim-neo-tree/neo-tree.nvim',
+    config = [[ require('setup.neotree') ]],
+    branch = "v2.x",
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+    },
   }
 
   --- Improved terminal support ---
@@ -235,13 +229,15 @@ function(use)
 
   --- Testrunner ---
   use {
-    'rcarriga/vim-ultest',
-    requires = { 'vim-test/vim-test' },
-    run = ':UpdateRemotePlugins',
-    config = [[ require('setup.ultest') ]]
+    'nvim-neotest/neotest',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'antoinemadec/FixCursorHold.nvim'
+    },
+    config = [[ require('setup.neotest') ]]
   }
 
-  --- Debug Adapter Protocol ---
   use {
     'mfussenegger/nvim-dap',
     config = [[ require('setup.nvim-dap') ]],

@@ -54,4 +54,5 @@ opt_global.hidden = true              -- hide buffers without saving
 opt_global.showmatch = true           -- show matching brackets
 g.inccommand = 'nosplit'              -- visualize command while typing
 o.hlsearch = false                    -- show no highlight on search
+g.cmdheight = 0
 

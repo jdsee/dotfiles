@@ -233,7 +233,11 @@ function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim'
+      'antoinemadec/FixCursorHold.nvim',
+      'vim-test/vim-test',
+      'nvim-neotest/neotest-python',
+      'nvim-neotest/neotest-plenary',
+      'nvim-neotest/neotest-vim-test',
     },
     config = [[ require('setup.neotest') ]]
   }

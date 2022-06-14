@@ -20,15 +20,15 @@ opt.number = true                     -- line numbers
 opt.relativenumber = true             -- line number relative to position
 opt.wrap = false                      -- don't wrap lines
 opt.ignorecase = true                 -- case insensitive matching
-opt.wildmode = { 'list', 'full' }     -- cli completion
+-- opt.wildmode = { 'list', --[[ TODO 'full' ]] }     -- cli completion
 opt.mouse = 'a'                       -- mouse support in all modes
 wo.cursorline = true                  -- highlight current line
 wo.scrolloff = 8                      -- keep cursor away from vertical borders
 wo.sidescrolloff = 8                  -- keep cursor away from horizontal borders
 opt_global.completeopt = {            -- completion options
   'menu',
-  -- 'noinsert',
-  -- 'noselect'
+  'preview',
+  'noinsert',
 }
 
 -- Tabs and Spaces
@@ -54,5 +54,6 @@ opt_global.hidden = true              -- hide buffers without saving
 opt_global.showmatch = true           -- show matching brackets
 g.inccommand = 'nosplit'              -- visualize command while typing
 o.hlsearch = false                    -- show no highlight on search
-g.cmdheight = 0
+o.cmdheight = 0                       -- hide cmdline when not used
+
 

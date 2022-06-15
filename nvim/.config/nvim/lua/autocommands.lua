@@ -19,7 +19,7 @@ vim.cmd [[
 vim.cmd [[
   augroup neovim_terminal
       autocmd!
-      autocmd TermOpen * startinsert                      "" start terminal in insert mode
+      autocmd TermEnter * startinsert                     "" start terminal in insert mode
       autocmd TermOpen * :set nonumber norelativenumber   "" disable linenumbers in terminal
       autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>   "" use Ctrl-c in terminal
   augroup END

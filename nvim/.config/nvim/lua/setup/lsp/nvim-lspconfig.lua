@@ -17,11 +17,11 @@ local on_attach = function()
   map('n', 'K', vim.lsp.buf.hover, opts)
   map('n', '<C-K>', vim.lsp.buf.signature_help, opts)
   map('n', '<Leader>rr', vim.lsp.buf.rename, opts)
-  map('n', '<Leader>rf', vim.lsp.buf.formatting, opts)
+  map('n', '<Leader>rf', vim.lsp.buf.format, opts)
   map('n', '<Leader>e', vim.diagnostic.open_float, opts)
   map('n', '[d', vim.diagnostic.goto_prev, opts)
   map('n', ']d', vim.diagnostic.goto_next, opts)
-  vim.cmd [[ command! Format lua vim.lsp.buf.formatting()<CR> ]]
+  vim.cmd [[ command! Format lua vim.lsp.buf.format()<CR> ]]
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

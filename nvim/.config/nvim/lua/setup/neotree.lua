@@ -22,7 +22,6 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
   {text = "", texthl = "DiagnosticSignHint"})
 
-map('n', '<C-I>', '<CMD>NeoTreeRevealToggle<CR>')
-map('n', '<C-Q>', '<CMD>NeoTreeRevealToggle<CR>')
-map('n', 'Q', '<CMD>Neotree<CR>')
+map('n', '<TAB>', '<CMD>NeoTreeFocusToggle<CR>')
+map('n', 'Q', '<CMD>NeoTreeRevealToggle<CR>')
 

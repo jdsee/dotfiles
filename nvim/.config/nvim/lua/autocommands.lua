@@ -1,26 +1,42 @@
 -- NVIM AUTOCOMMANDS
 
-local cmd = vim.api.nvim_command
-
 -- Open help in vertical split
-cmd [[
-  autocmd FileType help wincmd L
+vim.cmd [[
+  au FileType help wincmd L
 ]]
 
 -- Highlight on yank
 vim.cmd [[
   augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+    au!
+    au TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]]
 
 -- Terminal Defaults
 vim.cmd [[
-  augroup neovim_terminal
-      autocmd!
-      autocmd TermEnter * startinsert                     "" start terminal in insert mode
-      autocmd TermOpen * :set nonumber norelativenumber   "" disable linenumbers in terminal
-      autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>   "" use Ctrl-c in terminal
+  augroup Terminal
+      au!
+      au TermEnter * startinsert                     "" start terminal in insert mode
+      au TermOpen * :set nonumber norelativenumber   "" disable linenumbers in terminal
+      au TermOpen * nnoremap <buffer> <C-c> i<C-c>   "" use Ctrl-c in terminal
   augroup END
 ]]
+
+-- Set wrap for markdown files
+vim.cmd [[
+  augroup MarkdownWrap
+    au!
+    au BufEnter *.md setlocal wrap
+  augroup END
+]]
+
+-- Set mappings only for quickfix windows
+vim.cmd [[
+  augroup QuickFix
+    au FileType qf <buffer> nnoremap o <CMD>.cc<CR>
+    au FileType qf <buffer> nnoremap <CR> <CMD>.cc<CR>
+  augroup END
+]]
+
+

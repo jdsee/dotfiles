@@ -29,26 +29,26 @@ function Fn.set_log_point()
 end
 
 -- Keymappings --
-map('n', '<Leader>bb', dap.toggle_breakpoint)
-map('n', '<Leader>b?', Fn.set_conditional_breakpoint)
-map('n', '<Leader>bl', Fn.set_log_point)
-map('n', '<Leader>bd', dap.clear_breakpoints)
+map('n', '<Leader>b', dap.toggle_breakpoint)
+map('n', '<Leader><leader>b?', Fn.set_conditional_breakpoint)
+map('n', '<Leader><leader>bl', Fn.set_log_point)
+map('n', '<Leader><leader>bd', dap.clear_breakpoints)
 
+map('n', '<A-h>', dap.continue)
 map('n', '<A-j>', dap.step_over)
 map('n', '<A-k>', dap.step_out)
-map('n', '<A-h>', dap.step_back)
 map('n', '<A-l>', dap.step_into)
 
 map('n', '<Leader>dn', dap.continue)
 map('n', '<Leader>dd', dap.run_last)
-map('n', '<Leader>ds', dap.terminate)
+map('n', '<Leader>du', dap.terminate)
 map('n', '<Leader>d>', dap.run_to_cursor)
 map('n', '<Leader>di', dap.repl.toggle)
 
 map('n', '<Leader>dk', dap.up)
 map('n', '<Leader>dj', dap.down)
 
-map('n', '<Leader>dt', dapui.toggle)
+map('n', '<Leader>ds', dapui.toggle)
 -- map('n', '<Leader>dv', dapui.float_element('scopes', {}))
 
 -- Lua setup

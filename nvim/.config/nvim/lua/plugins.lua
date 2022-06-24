@@ -23,7 +23,6 @@ function(use)
     config = [[ require('nvim-autopairs').setup() ]],
   }
 
-  --- GIT Difftool ---
   use {
     'sindrets/diffview.nvim',
     config = [[ require('setup.diffview') ]],
@@ -78,6 +77,12 @@ function(use)
   use {
     'ThePrimeagen/git-worktree.nvim',
     config = [[ require('setup.git-worktree')]]
+  }
+
+  use {
+    'ThePrimeagen/harpoon',
+    requires = 'nvim-lua/plenary.nvim',
+    config = [[ require('setup.harpoon') ]]
   }
 
   use {

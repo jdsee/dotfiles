@@ -194,6 +194,7 @@ function(use)
       requires = 'tami5/sqlite.lua',
     },
     { 'nvim-telescope/telescope-file-browser.nvim' },
+    {'nvim-telescope/telescope-ui-select.nvim' },
   }
 
   --- Native LSP configuration ---

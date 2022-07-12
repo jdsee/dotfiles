@@ -7,7 +7,18 @@ local map = require('util.functions').map
 require('telescope').load_extension('dap')
 require('dap-python').setup('~/.pyenv/versions/debugpy/bin/python')
 require('nvim-dap-virtual-text').setup()
-dapui.setup()
+dapui.setup {
+  layouts = {
+    {
+      elements = {
+        'scopes',
+        'watches',
+      },
+      size = 20,
+      position = 'bottom'
+    }
+  }
+}
 
 -- open/close UI on dap events
 dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end

@@ -32,7 +32,6 @@ map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })       -- move down w
 
 -- Text actions
 map('n', '<Leader>i', 'i_<Esc>r')                                 -- insert single character
-map('n', '<BS>', '0D')                                            -- delete whole line content
 map('n', '<Leader>o', 'o<Esc>')                                   -- insert line below in normal mode
 map('n', '<Leader>O', 'O<Esc>')                                   -- insert line above in normal mode
 

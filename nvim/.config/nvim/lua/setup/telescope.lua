@@ -24,6 +24,7 @@ telescope.setup {
 telescope.load_extension 'fzf'
 telescope.load_extension 'file_browser'
 telescope.load_extension 'harpoon'
+telescope.load_extension 'ui-select'
 
 M = {}
 
@@ -39,6 +40,10 @@ end
 
 function M.lsp_code_actions()
   builtin.lsp_code_actions(themes.get_cursor())
+end
+
+function M.lsp_find_references()
+  builtin.lsp_references(themes.get_cursor())
 end
 
 function M.find_all_files()
@@ -61,5 +66,6 @@ map('n', '<Leader>gb', builtin.git_branches)                                -- s
 map('n', '<Leader>fc', builtin.commands)                                    -- search command history
 map('n', '<Leader>/', M.current_buffer_fuzzy_find)                          -- grep current buffer
 map('n', '<Leader>:', builtin.command_history)                              -- search command history
-map('n', '<CR>', M.lsp_code_actions)                                        -- search code actions in telescope
 map('n', '<Leader>fd', builtin.diagnostics)                                 -- search errors from lsp
+map('n', '<M-CR>', M.lsp_code_actions)                                      -- search code actions in telescope
+map('n', 'gr', M.lsp_find_references)                                       -- find references with lsp

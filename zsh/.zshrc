@@ -23,14 +23,13 @@ eval "$(pyenv virtualenv-init -)"
 # ZOXIDE
 eval "$(zoxide init zsh --cmd j)"
 
-set -o vi                                                           # enable vim mode
+# set -o vi                                                           # enable vim mode
 
 # PLUGINS
 zinit ice wait'!0'
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'   # pure theme
 zinit light sindresorhus/pure                                       # "
 zinit light zsh-users/zsh-syntax-highlighting                       # syntax highlighting
-zinit light Aloxaf/fzf-tab                                          # tab completion with fzf
 zinit light zsh-users/zsh-autosuggestions                           # autosuggestions
 zinit light ajeetdsouza/zoxide                                      # autojump
 zinit snippet OMZ::plugins/git/git.plugin.zsh                       # git helper

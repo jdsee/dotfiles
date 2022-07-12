@@ -13,6 +13,7 @@ alias vimception="floaterm"
 # GIT
 alias lg=lazygit
 alias rmgi="git rm -r --cached . && git add . && git status"
+alias conflicts="grep -lr '<<<<<<<' ."
 
 # GENERAL
 alias _="sudo"
@@ -22,6 +23,7 @@ alias hgrep="history 0 | grep"
 alias help="man"
 alias mycolors="msgcat --color=test"
 alias view="zathura"
+alias diff="colordiff"
 
 # DEVICES
 alias bt="blueutil"

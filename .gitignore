@@ -70,3 +70,5 @@ zsdoc/data
 
 
 ptpython/.config/ptpython/__pycache__
+nvim/.config/nvim/__pycache__
+nvim/.config/nvim/.python-version

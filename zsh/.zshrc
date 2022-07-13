@@ -47,19 +47,19 @@ autoload -U colors && colors
 RPROMPT='$(check_last_exit_code)'
 
 # ZSH KEY-BINDINGS
-bindkey '^K'          up-line-or-search up-line-or-select history-beginning-search-backward
-bindkey '^J'          down-line-or-search down-line-or-select history-beginning-search-forward
 bindkey '^O'          autosuggest-accept
 
 # FZF KEYBINDINGS
 [ -f $CONFIG_HOME/zsh/.fzf.zsh ] && source $CONFIG_HOME/zsh/.fzf.zsh
+export FZF_TMUX=1
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # Shortcut to gitignore.io API
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
-
 alias luamake=/Users/jdsee/.config/nvim/lua-language-server/3rd/luamake/luamake
-
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

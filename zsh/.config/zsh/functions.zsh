@@ -34,7 +34,7 @@ function check_last_exit_code() {
 function bak() {
   for file in "$@"
   do
-    cp ${file} "${file}.bak"
+    cp -r ${file} "${file}.bak"
   done
 }
 

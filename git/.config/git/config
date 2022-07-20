@@ -2,7 +2,7 @@
 	email = joscha-seelig@outlook.de
 	name = Joscha Seelig
 	username = jdsee
-	signingKey = 7C6415AC
+	signingkey = 70A221FE30FDA36E97E487F70142007D9771AFFC
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process

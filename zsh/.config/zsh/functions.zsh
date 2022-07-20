@@ -30,3 +30,11 @@ function check_last_exit_code() {
   echo $EXIT_CODE_PROMPT
 }
 
+# create backup file
+function bak() {
+  for file in "$@"
+  do
+    cp ${file} "${file}.bak"
+  done
+}
+

@@ -35,7 +35,6 @@ setopt GLOB_DOTS                        # include dotfiles
 # case insensitive matching and ignoring preceding dot
 zstyle ':completion:*' matcher-list 'r:|?=**' '+m:{a-zA-Z}={A-Za-z}' '+r:|[._-]=* r:|=*' '+l:|=* r:|=*'
 
-source $HOME/.config/zsh/homebrew-completion.zsh
 source $HOME/.config/zsh/ssh-host-completion.zsh
 
 autoload -Uz compinit && compinit

@@ -17,17 +17,18 @@ alias conflicts="grep -lr '<<<<<<<' ."
 
 # GENERAL
 alias _="sudo"
-alias cat="bat"
+alias cat="bat -p"
 alias grep="grep --color"
 alias hgrep="history 0 | grep"
 alias help="man"
 alias mycolors="msgcat --color=test"
 alias view="zathura"
 alias diff="colordiff"
+alias kb=setxkbmap
+alias clip="xclip -sel clip"
 
 # DEVICES
-alias bt="blueutil"
-alias bt.toggle="blueutil -p toggle && if [[ $(bt -p) = 1 ]]; then blueutil --connect 00-1d-df-c7-c4-9e; fi"
+# TODO: add bluetooth helper here
 
 # SOURCE
 alias src.zsh="source $HOME/.zshrc"
@@ -44,7 +45,7 @@ alias set.kitty="nvim $HOME/.config/kitty/kitty.conf"
 
 # SHORTCUTS
 alias go.home="cd"
-alias go.config="cd $HOME/.config"
+alias go.conf="cd $HOME/.config"
 alias go.dots="cd $HOME/dotfiles"
 alias go.code="cd $HOME/code"
 
@@ -60,4 +61,12 @@ alias la="ls -A"
 alias ld="ls -Ad"
 alias tree="la --tree"
 alias trees="tree --depth 4"
+
+# TMUX
+# restore session after reboot
+alias mux='pgrep -vx tmux > /dev/null && \
+        tmux new -d -s delete-me && \
+        tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && \
+        tmux kill-session -t delete-me && \
+        tmux attach || tmux attach'
 

@@ -237,6 +237,10 @@ function(use)
     'lervag/vimtex',
     config = [[ require('setup.vimtex') ]]
   }
+
+  --- Clojure Integration ---
+  use { 'Olical/conjure' }
+
   --- Better Error Support for Haskell ---
   use {
     'ndmitchell/ghcid',

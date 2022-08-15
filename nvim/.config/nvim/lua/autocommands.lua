@@ -39,4 +39,8 @@ vim.cmd [[
   augroup END
 ]]
 
+-- Prevent creation of insecure copies of gopass files
+vim.cmd [[
+  au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+]]
 

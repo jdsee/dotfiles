@@ -22,7 +22,8 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
   {text = "", texthl = "DiagnosticSignHint"})
 
-map('n', '<C-i>', '<C-i>')
+map('n', '<C-i>', '<C-i>') -- this is necessary to use <Tab> and <C-i> separately
 map('n', '<TAB>', '<CMD>NeoTreeFocusToggle<CR>')
-map('n', 'Q', '<CMD>NeoTreeRevealToggle<CR>')
+map('n', '<S-TAB>', '<CMD>NeoTreeRevealToggle<CR>')
+map('n', 'Q', '<CMD>NeoTreeFloatCR>')
 

@@ -9,13 +9,14 @@ local themes = require 'telescope.themes'
 telescope.setup {
   defaults = {
     prompt_prefix = ' ',
+    defaults = {},
     mappings = {
       i = {
         ["<C-h>"] = "which_key",
         ["<C-J>"] = "move_selection_next",
         ["<C-K>"] = "move_selection_previous",
       }
-    }
+    },
   },
   pickers = {},
   extensions = {}
@@ -47,7 +48,10 @@ function M.lsp_find_references()
 end
 
 function M.find_all_files()
-  builtin.find_files { hidden = true }
+  builtin.find_files {
+    hidden = true,
+    follow = true,
+  }
 end
 
 function M.find_nvim_files()
@@ -67,5 +71,5 @@ map('n', '<Leader>fc', builtin.commands)                                    -- s
 map('n', '<Leader>/', M.current_buffer_fuzzy_find)                          -- grep current buffer
 map('n', '<Leader>:', builtin.command_history)                              -- search command history
 map('n', '<Leader>fd', builtin.diagnostics)                                 -- search errors from lsp
-map('n', '<M-CR>', M.lsp_code_actions)                                      -- search code actions in telescope
+map('n', '<Leader-a>', M.lsp_code_actions)                                      -- search code actions in telescope
 map('n', 'gr', M.lsp_find_references)                                       -- find references with lsp

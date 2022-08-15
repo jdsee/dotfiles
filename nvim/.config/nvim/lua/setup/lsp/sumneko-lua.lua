@@ -15,7 +15,7 @@ function M.setup(on_attach)
     print('Unsupported system for sumneko')
   end
 
-  local sumneko_root_path = '/Users/jdsee/.config/nvim/language-servers/lua-language-server'
+  local sumneko_root_path = '~/.local/share/nvim/lsp_servers/sumneko_lua'
   local sumneko_binary = sumneko_root_path..'/bin/'..system_name..'/lua-language-server'
 
   local runtime_path = vim.split(package.path, ';')

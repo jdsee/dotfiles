@@ -15,12 +15,14 @@ local on_attach = function()
   map('n', 'gt', vim.lsp.buf.type_definition, opts)
   map('n', 'K', vim.lsp.buf.hover, opts)
   map('n', '<C-K>', vim.lsp.buf.signature_help, opts)
+  map('n', '<leader>a', vim.lsp.buf.code_action)
   map('n', '<Leader>rr', vim.lsp.buf.rename, opts)
   map('n', '<Leader>rf', vim.lsp.buf.format, opts)
-  map('n', '<Leader>e', vim.diagnostic.open_float, opts)
   map('n', '[d', vim.diagnostic.goto_prev, opts)
   map('n', ']d', vim.diagnostic.goto_next, opts)
   vim.cmd [[ command! Format lua vim.lsp.buf.format()<CR> ]]
+
+  -- additional mappings in setup.telescope.lua
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -31,6 +33,7 @@ local auto_setup_servers = {
   'pyright',
   'bashls',
   'clangd',
+  'clojure_lsp',
   'dockerls',
   'eslint',
   'cssls',

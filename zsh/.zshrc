@@ -18,7 +18,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"                   # use bat as
 export HISTCONTROL=ignoreboth                                       # ignore commands with space prefix in history
 setopt HIST_IGNORE_ALL_DUPS                                         # ignore history duplicates
 setopt inc_append_history                                           # sync history between tmux windows
-
+set -s histappend                                                   # append to history
 
 # SETUP SSH AGENT
 eval "$(ssh-agent)" >/dev/null

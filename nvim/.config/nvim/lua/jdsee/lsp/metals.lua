@@ -1,7 +1,5 @@
--- METALS LSP SETUP
-
 local cmd = vim.cmd
-metals_config = require('metals').bare_config()
+local metals_config = require('metals').bare_config()
 
 local M = {}
 
@@ -29,4 +27,3 @@ function M.setup(on_attach)
 end
 
 return M
-

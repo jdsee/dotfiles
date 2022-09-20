@@ -1,11 +1,8 @@
--- | jdsee |
--- |-------------------------------------------------------------------------------
--- |  NEOVIM - INIT.LUA
--- |--------------------------------------------------------------------------------
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-require 'settings'
-require 'plugins'
-require 'keymap'
-require 'autocommands'
-require 'globals'
-
+require 'jdsee.plugins'
+require 'jdsee.settings'
+require 'jdsee.keymap'
+require 'jdsee.autocommands'
+-- require 'jdsee.globals'

@@ -1,4 +1,5 @@
--- NVIM-CMP SETUP
+-- nvim-cmp
+-- https://github.com/hrsh7th/nvim-cmp
 
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -11,13 +12,10 @@ local confirm_mapping = cmp.mapping.confirm {
   select = true,
 }
 
-
 cmp.setup {
   mapping = {
     ['<C-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
     ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-    ['<C-j>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-    ['<C-k>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
     ['<Down>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
     ['<Up>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -32,7 +30,7 @@ cmp.setup {
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'treesitter' },
-    { name = 'buffer', keywowrd_length = 5 },
+    { name = 'buffer', keyword_length = 5 },
   },
   snippet = {
     expand = function(args)
@@ -57,6 +55,4 @@ cmp.setup {
     ghost_text = true,
   }
 }
-
--- TODO: set color
 

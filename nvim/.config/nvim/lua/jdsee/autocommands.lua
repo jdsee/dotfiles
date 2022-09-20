@@ -9,7 +9,7 @@ vim.cmd [[
 vim.cmd [[
   augroup YankHighlight
     au!
-    au TextYankPost * silent! lua vim.highlight.on_yank()
+    au TextYankPost * silent! lua vim.highlight.on_yank { timeout = 100 }
   augroup end
 ]]
 
@@ -23,24 +23,31 @@ vim.cmd [[
   augroup END
 ]]
 
--- Set wrap for markdown files
+-- Set wrap for text files
 vim.cmd [[
   augroup MarkdownWrap
     au!
-    au BufEnter *.md setlocal wrap
+    au BufEnter *.md,*.tex setlocal wrap spell
   augroup END
 ]]
 
 -- Set mappings only for quickfix windows
-vim.cmd [[
-  augroup QuickFix
-    au FileType qf <buffer> nnoremap o <CMD>.cc<CR>
-    au FileType qf <buffer> nnoremap <CR> <CMD>.cc<CR>
-  augroup END
-]]
+-- TODO: make this work
+-- vim.cmd [[
+--   augroup QuickFix
+--     au FileType qf <buffer> nnoremap o <CMD>.cc<CR>
+--     au FileType qf <buffer> nnoremap <CR> <CMD>.cc<CR>
+--   augroup END
+-- ]]
 
 -- Prevent creation of insecure copies of gopass files
 vim.cmd [[
   au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 ]]
 
+-- Call PackerSync when plugins changed
+vim.api.nvim_create_autocmd(
+  'BufWritePost', {
+    pattern = 'lua/plugins.lua',
+    command = 'PackerSync',
+})

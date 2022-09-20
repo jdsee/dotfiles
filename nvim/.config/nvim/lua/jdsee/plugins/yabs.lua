@@ -1,7 +1,5 @@
--- YABS.NVIM
---- https://github.com/pianocomposer321/yabs.nvim#setup
-
-local map = require('util.functions').map
+-- yabs
+-- https://github.com/pianocomposer321/yabs.nvim
 
 require("yabs"):setup {
   languages = {
@@ -46,10 +44,10 @@ require("yabs"):setup {
       },
     },
 
-    -- Others
   },
 }
 
 -- Keymappings
-map('n', '<Leader>ee', '<cmd>YabsTask run<CR>')
-map('n', '<Leader>ei', '<cmd>YabsTask interactive<CR>')
+vim.keymap.set('n', '<Leader>ee', '<cmd>YabsTask run<CR>')
+vim.keymap.set('n', '<Leader>ei', '<cmd>YabsTask interactive<CR>')
+

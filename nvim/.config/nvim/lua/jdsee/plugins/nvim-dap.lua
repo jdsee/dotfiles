@@ -1,8 +1,7 @@
--- Setup nvim-dap
--- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+-- nvim-dap
+-- https://github.com/mfussenegger/nvim-dap/wiki
 
 local dap, dapui = require('dap'), require('dapui')
-local map = require('util.functions').map
 
 require('telescope').load_extension('dap')
 require('dap-python').setup('~/.pyenv/versions/debugpy/bin/python')
@@ -15,7 +14,7 @@ dapui.setup {
         'watches',
       },
       size = 20,
-      position = 'bottom'
+      position = 'bottom',
     }
   }
 }
@@ -39,28 +38,28 @@ function Fn.set_log_point()
   dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
 end
 
--- Keymappings --
-map('n', '<Leader>b', dap.toggle_breakpoint)
-map('n', '<Leader><leader>b?', Fn.set_conditional_breakpoint)
-map('n', '<Leader><leader>bl', Fn.set_log_point)
-map('n', '<Leader><leader>bd', dap.clear_breakpoints)
+-- Keybindings
+vim.keymap.set('n', '<Leader>b', dap.toggle_breakpoint)
+vim.keymap.set('n', '<Leader><leader>b?', Fn.set_conditional_breakpoint)
+vim.keymap.set('n', '<Leader><leader>bl', Fn.set_log_point)
+vim.keymap.set('n', '<Leader><leader>bd', dap.clear_breakpoints)
 
-map('n', '<A-h>', dap.continue)
-map('n', '<A-j>', dap.step_over)
-map('n', '<A-k>', dap.step_out)
-map('n', '<A-l>', dap.step_into)
+vim.keymap.set('n', '<A-h>', dap.continue)
+vim.keymap.set('n', '<A-j>', dap.step_over)
+vim.keymap.set('n', '<A-k>', dap.step_out)
+vim.keymap.set('n', '<A-l>', dap.step_into)
 
-map('n', '<Leader>dn', dap.continue)
-map('n', '<Leader>dd', dap.run_last)
-map('n', '<Leader>du', dap.terminate)
-map('n', '<Leader>d>', dap.run_to_cursor)
-map('n', '<Leader>di', dap.repl.toggle)
+vim.keymap.set('n', '<Leader>dn', dap.continue)
+vim.keymap.set('n', '<Leader>dd', dap.run_last)
+vim.keymap.set('n', '<Leader>du', dap.terminate)
+vim.keymap.set('n', '<Leader>d>', dap.run_to_cursor)
 
-map('n', '<Leader>dk', dap.up)
-map('n', '<Leader>dj', dap.down)
+vim.keymap.set('n', '<Leader>di', dap.repl.toggle)
+vim.keymap.set('n', '<Leader>dk', dap.up)
+vim.keymap.set('n', '<Leader>dj', dap.down)
 
-map('n', '<Leader>ds', dapui.toggle)
--- map('n', '<Leader>dv', dapui.float_element('scopes', {}))
+vim.keymap.set('n', '<Leader>ds', dapui.toggle)
+-- vim.keymap.set('n', '<Leader>dv', dapui.float_element('scopes', {}))
 
 -- Lua setup
 dap.adapters.nlua = function(callback, config)

@@ -1,10 +1,7 @@
--- HASKELL LSP SETUP
-
 local M = {}
 
-function M.setup(on_attach)
+function M.setup()
   require('lspconfig').hls.setup {
-    on_attach = on_attach,
     root_dir = vim.loop.cwd,
     settings = {
       haskell = {
@@ -16,4 +13,3 @@ function M.setup(on_attach)
 end
 
 return M
-

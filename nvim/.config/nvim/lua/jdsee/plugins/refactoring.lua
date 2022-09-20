@@ -1,7 +1,6 @@
 -- REFACTORING.NVIM
 ---- https://github.com/ThePrimeagen/refactoring.nvim#configuration
 
-local map = require('util.functions').map
 local refactoring = require 'refactoring'
 local telescope = require 'telescope'
 
@@ -26,15 +25,13 @@ function M.debug_print()
   refactoring.debug.printf { below = false }
 end
 
-map('v', '<Leader>re', M.extract_function)
-map('v', '<Leader>ref', M.extract_function_to_file)
-map('v', '<Leader>ri', M.inline_variable)
+-- Keybindings
+vim.keymap.set('v', '<Leader>re', M.extract_function)
+vim.keymap.set('v', '<Leader>ref', M.extract_function_to_file)
+vim.keymap.set('v', '<Leader>ri', M.inline_variable)
+vim.keymap.set( 'n', '<Leader>rp', M.debug_print)
+vim.keymap.set("v", "<Leader>rv",refactoring.debug.print_var)
+vim.keymap.set("n", "<Leader>rc",refactoring.debug.cleanup)
 
-map( 'n', '<Leader>rp', M.debug_print)
-
-map("v", "<Leader>rv",refactoring.debug.print_var)
-map("n", "<Leader>rc",refactoring.debug.cleanup)
-
--- Telescope extension
-map( "v", "<Leader>rm", telescope.extensions.refactoring.refactors)
+vim.keymap.set( "v", "<Leader>rm", telescope.extensions.refactoring.refactors)
 

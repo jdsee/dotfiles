@@ -3,7 +3,6 @@ local M = {}
 
 function M.installPacker()
   local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
   if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system {
       'git',
@@ -15,14 +14,9 @@ function M.installPacker()
     }
     print 'Installing packer. Close and reopen Neovim...'
     vim.cmd [[ packadd packer.nvim ]]
+    return true
   end
-
-  vim.api.nvim_create_autocmd(
-    'BufWritePost', {
-      pattern = 'lua/plugins.lua',
-      command = 'PackerSync',
-    })
+  return false
 end
 
 return M
-

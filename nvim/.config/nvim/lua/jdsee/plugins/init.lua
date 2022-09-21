@@ -50,7 +50,8 @@ return require('packer').startup(
         config = function() require('jdsee.plugins.nvim-treesitter') end,
         run = ':TSUpdate'
       },
-      { 'nvim-treesitter/nvim-treesitter-textobjects' }
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+      { 'nvim-treesitter/nvim-treesitter-context' },
     }
 
     --- Refactoring Tool ---
@@ -123,6 +124,13 @@ return require('packer').startup(
       { 'folke/tokyonight.nvim' },
       { 'shaunsingh/nord.nvim' },
       { 'EdenEast/nightfox.nvim' },
+      { 'catppuccin/catppuccin' },
+      { 'rose-pine/neovim' },
+      { 'Yagua/nebulous.nvim' },
+      use {
+        'mcchrish/zenbones.nvim',
+        requires = 'rktjmp/lush.nvim'
+      }
     }
 
     --- File Tree ---

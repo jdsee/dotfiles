@@ -25,7 +25,7 @@ vim.cmd [[
 
 -- Set wrap for text files
 vim.cmd [[
-  augroup MarkdownWrap
+  augroup OpenReadFiles
     au!
     au BufEnter *.md,*.tex setlocal wrap spell
   augroup END
@@ -48,6 +48,6 @@ vim.cmd [[
 -- Call PackerSync when plugins changed
 vim.api.nvim_create_autocmd(
   'BufWritePost', {
-    pattern = 'lua/plugins.lua',
-    command = 'PackerSync',
+  pattern = 'lua/plugins.lua',
+  command = 'PackerSync',
 })

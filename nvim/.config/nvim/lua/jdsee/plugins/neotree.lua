@@ -1,6 +1,6 @@
 -- neotree
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
- 
+
 local neotree = require('neo-tree')
 
 neotree.setup {
@@ -27,8 +27,9 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
   { text = "", texthl = "DiagnosticSignHint" })
 
-vim.keymap.set('n', '<C-i>', '<C-i>') -- necessary to use <Tab> and <C-i> separately
-vim.keymap.set('n', '<TAB>', '<CMD>NeoTreeFocusToggle<CR>')
-vim.keymap.set('n', '<S-TAB>', '<CMD>NeoTreeRevealToggle<CR>')
-vim.keymap.set('n', 'Q', '<CMD>NeoTreeFloatCR>')
+vim.g.neo_tree_remove_legacy_commands = 1
 
+vim.keymap.set('n', '<C-i>', '<C-i>') -- necessary to use <Tab> and <C-i> separately
+vim.keymap.set('n', '<Tab>', '<CMD>Neotree toggle<CR>')
+vim.keymap.set('n', '<S-Tab>', '<CMD>Neotree reveal toggle<CR>')
+vim.keymap.set('n', '<C-Tab', '<CMD>Neotree float toggle<CR>')

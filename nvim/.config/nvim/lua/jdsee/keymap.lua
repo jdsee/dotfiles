@@ -48,11 +48,12 @@ map('n', '<Leader>cP', '<CMD>cp<CR>') -- go to next quickfix entry
 map('n', '<C-,>', ':bd<CR>') -- close buffer
 
 -- Clipboard
-local clip_reg = vim.fn.has('mac') == 1 and "*" or "+"
-map('n', '<Leader>y', '"' .. clip_reg .. 'y') -- copy to system clipboard
-map('n', '<Leader>Y', '"' .. clip_reg .. 'Y') -- copy to end of line to system clipboard
-map('n', '<Leader>p', '"' .. clip_reg .. 'p') -- paste from system clipboard
-map('n', '<Leader>P', '"' .. clip_reg .. 'P') -- paste to end of line from system clipboard
+-- local clip_reg = vim.fn.has('mac') == 1 and "*" or "+"
+local clip_reg = '+'
+map({ 'n', 'v' }, '<Leader>y', '"' .. clip_reg .. 'y') -- copy to system clipboard
+map({ 'n', 'v' }, '<Leader>Y', '"' .. clip_reg .. 'Y') -- copy to end of line to system clipboard
+map({ 'n', 'v' }, '<Leader>p', '"' .. clip_reg .. 'p') -- paste from system clipboard
+map({ 'n', 'v' }, '<Leader>P', '"' .. clip_reg .. 'P') -- paste to end of line from system clipboard
 
 -- Refactoring
 map('n', '<A-S-j>', ':m .+1<CR>==') -- move line down

@@ -1,6 +1,7 @@
 local packer_bootstraped = require('jdsee.util.bootstrap').installPacker()
+local packer = require 'packer'
 
-return require('packer').startup(
+return packer.startup(
   function(use)
     use { 'wbthomason/packer.nvim', opt = true }
 
@@ -47,7 +48,7 @@ return require('packer').startup(
     use {
       {
         'nvim-treesitter/nvim-treesitter',
-        config = function() require('jdsee.plugins.nvim-treesitter') end,
+        config = function() require 'jdsee.plugins.nvim-treesitter' end,
         run = ':TSUpdate'
       },
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
@@ -57,7 +58,7 @@ return require('packer').startup(
     --- Refactoring Tool ---
     use {
       'ThePrimeagen/refactoring.nvim',
-      config = function() require('jdsee.plugins.refactoring') end,
+      config = function() require 'jdsee.plugins.refactoring' end,
       requires = {
         { 'nvim-lua/plenary.nvim' },
         { 'nvim-treesitter' }
@@ -66,13 +67,13 @@ return require('packer').startup(
 
     use {
       'ThePrimeagen/git-worktree.nvim',
-      config = function() require('jdsee.plugins.git-worktree') end
+      config = function() require 'jdsee.plugins.git-worktree' end
     }
 
     use {
       'ThePrimeagen/harpoon',
       requires = 'nvim-lua/plenary.nvim',
-      config = function() require('jdsee.plugins.harpoon') end
+      config = function() require 'jdsee.plugins.harpoon' end
     }
 
     use {
@@ -82,13 +83,14 @@ return require('packer').startup(
         'nvim-telescope/telescope.nvim',
         'kyazdani42/nvim-web-devicons',
       },
-      config = function() require('octo').setup() end
+      config = function() require('octo').setup() end,
+      diable = true,
     }
 
     --- Nvim Build Tool ---
     use {
       'pianocomposer321/yabs.nvim',
-      config = function() require('jdsee.plugins.yabs') end,
+      config = function() require 'jdsee.plugins.yabs' end,
       requires = { 'nvim-lua/plenary.nvim' },
       disable = true,
     }
@@ -96,7 +98,7 @@ return require('packer').startup(
     --- Code Runner ---
     use {
       'michaelb/sniprun',
-      config = function() require('jdsee.plugins.sniprun') end,
+      config = function() require 'jdsee.plugins.sniprun' end,
       run = 'bash ./install.sh',
       disable = true,
     }
@@ -104,7 +106,7 @@ return require('packer').startup(
     --- GIT Marker ---
     use {
       'lewis6991/gitsigns.nvim',
-      config = function() require('jdsee.plugins.gitsigns') end,
+      config = function() require 'jdsee.plugins.gitsigns' end,
       requires = { 'nvim-lua/plenary.nvim' }
     }
 
@@ -136,7 +138,7 @@ return require('packer').startup(
     --- File Tree ---
     use {
       'nvim-neo-tree/neo-tree.nvim',
-      config = function() require('jdsee.plugins.neotree') end,
+      config = function() require 'jdsee.plugins.neotree' end,
       branch = "v2.x",
       requires = {
         'nvim-lua/plenary.nvim',
@@ -148,25 +150,25 @@ return require('packer').startup(
     --- Indentation Visualizer ---
     use {
       'lukas-reineke/indent-blankline.nvim',
-      config = function() require('jdsee.plugins.indent-blankline') end,
+      config = function() require 'jdsee.plugins.indent-blankline' end,
     }
 
     --- Statusbar ---
     use {
       'nvim-lualine/lualine.nvim',
-      config = function() require('jdsee.plugins.lualine') end,
+      config = function() require 'jdsee.plugins.lualine' end,
     }
 
     --- Telescope Fuzzy Finder ---
     use {
       {
         'nvim-telescope/telescope.nvim',
-        config = function() require('jdsee.plugins.telescope') end,
+        config = function() require 'jdsee.plugins.telescope' end,
         requires = {
           'nvim-lua/plenary.nvim',
-          'telescope-fzf-native.nvim',
-          'telescope-frecency.nvim',
-          'telescope-file-browser.nvim',
+          'jvgrootveld/telescope-zoxide',
+          'nvim-lua/popup.nvim',
+          'nvim-telescope/telescope-ui-select.nvim',
         },
       },
       {
@@ -178,8 +180,12 @@ return require('packer').startup(
         after = 'telescope.nvim',
         requires = 'tami5/sqlite.lua',
       },
-      { 'nvim-telescope/telescope-file-browser.nvim' },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
+    }
+
+    use {
+      'AckslD/nvim-neoclip.lua',
+      after = 'telescope.nvim',
+      config = function() require 'jdsee.plugins.neoclip' end,
     }
 
     --- LSP ---
@@ -188,15 +194,14 @@ return require('packer').startup(
       requires = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
-        'onsails/lspkind-nvim',
       },
-      config = function() require('jdsee.lsp') end,
+      config = function() require 'jdsee.lsp' end,
     }
 
     --- LSP Completion ---
     use {
       'hrsh7th/nvim-cmp',
-      config = function() require('jdsee.plugins.nvim-cmp') end,
+      config = function() require 'jdsee.plugins.nvim-cmp' end,
       requires = {
         { 'hrsh7th/cmp-buffer' },
         { 'hrsh7th/cmp-path' },
@@ -204,6 +209,8 @@ return require('packer').startup(
         { 'hrsh7th/cmp-nvim-lua' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'saadparwaiz1/cmp_luasnip' },
+        { 'rafamadriz/friendly-snippets' },
+        { 'onsails/lspkind-nvim' }, -- LSP pictograms
       }
     }
 
@@ -222,17 +229,11 @@ return require('packer').startup(
     --- Latex Integration ---
     use {
       'lervag/vimtex',
-      config = function() require('jdsee.plugins.vimtex') end
+      config = function() require 'jdsee.plugins.vimtex' end
     }
 
     --- Clojure Integration ---
     use { 'Olical/conjure' }
-
-    --- Better Error Support for Haskell ---
-    use {
-      'ndmitchell/ghcid',
-      rtp = 'plugins/nvim'
-    }
 
     --- Testrunner ---
     use {
@@ -246,12 +247,12 @@ return require('packer').startup(
         'nvim-neotest/neotest-plenary',
         'nvim-neotest/neotest-vim-test',
       },
-      config = function() require('jdsee.plugins.neotest') end
+      config = function() require 'jdsee.plugins.neotest' end
     }
 
     use {
       'mfussenegger/nvim-dap',
-      config = function() require('jdsee.plugins.nvim-dap') end,
+      config = function() require 'jdsee.plugins.nvim-dap' end,
       requires = {
         { 'nvim-telescope/telescope-dap.nvim' },
         { 'theHamsta/nvim-dap-virtual-text' },
@@ -261,9 +262,9 @@ return require('packer').startup(
       }
     }
 
-    -- Automatically set up your configuration after cloning packer.nvim
+    -- Automatically set up configuration after cloning packer.nvim
     if packer_bootstraped then
-      require('packer').sync()
+      packer.sync()
     end
 
   end)

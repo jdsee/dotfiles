@@ -6,6 +6,7 @@ local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
 
 lspkind.init()
+luasnip.filetype_extend('vue', { 'vue' })
 
 local confirm_mapping = cmp.mapping.confirm {
   behavior = cmp.ConfirmBehavior.Replace,
@@ -55,4 +56,3 @@ cmp.setup {
     ghost_text = true,
   }
 }
-

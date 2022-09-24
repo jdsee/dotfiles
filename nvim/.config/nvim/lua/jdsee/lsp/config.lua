@@ -1,8 +1,12 @@
 local M = {}
 
-function M.on_attach()
+---@diagnostic disable-next-line: unused-local
+function M.on_attach(client, bufnr)
   local map = function(mode, lhs, rhs)
-    local opts = { buffer = true }
+    local opts = {
+      silent = true,
+    }
+    -- TODO: this should probably done local to buffer
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 
@@ -18,8 +22,9 @@ function M.on_attach()
   map('n', '<Leader>rf', vim.lsp.buf.formatting)
   map('n', '[d', vim.diagnostic.goto_prev)
   map('n', ']d', vim.diagnostic.goto_next)
+  map('n', 'gh', vim.diagnostic.open_float)
 
-  vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   vim.cmd [[ command! Format lua vim.lsp.buf.formatting()<CR> ]]
 end
 

@@ -220,6 +220,13 @@ return packer.startup(
       { 'rafamadriz/friendly-snippets' },
     }
 
+    --- Java LSP ---
+    use {
+      'mfussenegger/nvim-jdtls',
+      after = 'neovim/nvim-lspconfig'
+      -- config = function() require 'jdsee.lsp.jdtls' end,
+    }
+
     --- Scala LSP ---
     use {
       'scalameta/nvim-metals',

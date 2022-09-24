@@ -35,6 +35,7 @@ modify conf = conf `additionalKeysP`
             , ("M-<Space>",                   spawn "rofi -show drun"               )
             , ("M4-<Space>",                  spawn "rofi -show windowcd"           )
             , ("M-S-<Space>",                 spawn "rofi -show filebrowser"        )
+            , ("S-<Space>",                   spawn "rofi-rbw -t password"          )
 
             -- Navigation
             , ("M-C-l",                       nextWS                                )

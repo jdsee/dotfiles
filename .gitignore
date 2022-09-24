@@ -1,9 +1,6 @@
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zcompdump
 
-nvim/.config/nvim/language-servers/lua-language-server
-nvim/.config/nvim/plugin/packer_compiled.lua
-
 # Created by https://www.toptal.com/developers/gitignore/api/macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos
 
@@ -68,7 +65,11 @@ zsdoc/data
 
 # End of https://www.toptal.com/developers/gitignore/api/zsh
 
+**/__pycache__
 
-ptpython/.config/ptpython/__pycache__
-nvim/.config/nvim/__pycache__
 nvim/.config/nvim/.python-version
+nvim/.config/nvim/.language-servers/*
+nvim/.config/nvim/plugin/*
+
+# Don't publish pw manager details
+rbw/.config/rbw/config.json

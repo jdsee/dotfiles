@@ -1,0 +1,62 @@
+font:
+  size: 10.0
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
+
+  bold:
+    family: Hack Nerd Font Mono
+    style: Bold
+
+  italic:
+    family: Hack Nerd Font Mono
+    style: Italic
+
+window:
+  opacity: 1
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: I, mods: Control, chars: "\e[105;5u" }
+  - { key: I, mods: Control|Shift, chars: "\e[105;6u" }
+
+  - { key: H, mods: Control|Shift, chars: "\e[72;6u" }
+  - { key: J, mods: Control|Shift, chars: "\e[74;6u" }
+  - { key: K, mods: Control|Shift, chars: "\e[75;6u" }
+  - { key: L, mods: Control|Shift, chars: "\e[76;6u" }
+
+  - { key: Period, mods: Control, chars: "\e[46;5u" }
+  - { key: Comma, mods: Control, chars: "\e[44;5u" }
+  - { key: Semicolon, mods: Control, chars: "\e[59;5u" }
+  - { key: Return, mods: Control, chars: "\e[13;5u" }
+  - { key: Return, mods: Shift, chars: "\e[13;2u" }
+colors:
+  name: Default (dark)
+  author: Chris Kempson
+  primary:
+    background: "#151515"
+    foreground: "#d0d0d0"
+  cursor:
+    text: "#151515"
+    cursor: "#d0d0d0"
+  normal:
+    black: "#151515"
+    red: "#ac4142"
+    green: "#90a959"
+    yellow: "#f4bf75"
+    blue: "#6a9fb5"
+    magenta: "#aa759f"
+    cyan: "#75b5aa"
+    white: "#d0d0d0"
+  bright:
+    black: "#505050"
+    red: "#ac4142"
+    green: "#90a959"
+    yellow: "#f4bf75"
+    blue: "#6a9fb5"
+    magenta: "#aa759f"
+    cyan: "#75b5aa"
+    white: "#f5f5f5"
+theme: Default.dark

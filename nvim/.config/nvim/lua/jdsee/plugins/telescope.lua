@@ -16,6 +16,9 @@ telescope.setup {
   },
   pickers = {},
   extensions = {
+    ['ui-select'] = {
+      themes.get_dropdown(),
+    },
     zoxide = {
       mappings = {
         ['<CR>'] = {

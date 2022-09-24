@@ -1,0 +1,3 @@
+include zathura-gruvbox/zathura-gruvbox-dark
+set font 'monospace normal 16'
+set incremental-search

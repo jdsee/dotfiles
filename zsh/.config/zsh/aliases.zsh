@@ -63,10 +63,5 @@ alias tree="la --tree"
 alias trees="tree --depth 4"
 
 # TMUX
-# restore session after reboot
-alias mux='pgrep -vx tmux > /dev/null && \
-        tmux new -d -s delete-me && \
-        tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && \
-        tmux kill-session -t delete-me && \
-        tmux attach || tmux attach'
-
+alias tx="tmuxinator"
+alias mux="tx me"

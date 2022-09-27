@@ -4,6 +4,13 @@ local telescope = require 'telescope'
 neoclip.setup {
   history = 500,
   enable_persistent_history = false,
+  keys = {
+    telescope = {
+      i = {
+        paste = '<c-j>',
+      }
+    }
+  }
 }
 
 telescope.load_extension 'neoclip'

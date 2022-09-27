@@ -7,8 +7,7 @@ alias py="ptpython --vi"
 # VIM
 alias v="nvim"
 alias vi="nvim"
-alias iv="floaterm"
-alias vimception="floaterm"
+alias vind="nvim -c 'Telescope zoxide list'"
 
 # GIT
 alias lg=lazygit

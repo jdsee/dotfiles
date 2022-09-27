@@ -24,6 +24,9 @@ function M.on_attach(client, bufnr)
   map('n', ']d', vim.diagnostic.goto_next)
   map('n', 'gh', vim.diagnostic.open_float)
 
+  -- TODO: map function to gd that first tries to goto_definition
+  -------- and uses find_references else.
+
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   vim.cmd [[ command! Format lua vim.lsp.buf.formatting()<CR> ]]
 end

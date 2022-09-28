@@ -1,0 +1,11 @@
+# /home/jdsee/.config/tmuxinator/daily-surfer.yml
+
+name: me
+root: ~/
+startup_window: explore
+windows:
+  - home:
+  - editor: nvim -c "Telescope zoxide list"
+  - notes:
+    - cd ~/my/notes
+    - date -u +"%Y-%m-%d_%H-%M_notes" | xargs nvim

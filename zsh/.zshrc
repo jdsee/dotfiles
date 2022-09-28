@@ -15,10 +15,12 @@ export GPG_TTY=$(tty)                                               # required b
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"                   # use bat as manpager
 
 # OPTIONS
+setopt append_history
+export HISTFILE=~/.zsh-history
+export HISTSIZE=5000
+export SAVEHIST=5000
 export HISTCONTROL=ignoreboth                                       # ignore commands with space prefix in history
 setopt HIST_IGNORE_ALL_DUPS                                         # ignore history duplicates
-setopt inc_append_history                                           # sync history between tmux windows
-set -s histappend                                                   # append to history
 
 # SETUP SSH AGENT
 eval "$(ssh-agent)" >/dev/null

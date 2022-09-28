@@ -128,7 +128,6 @@ return packer.startup(
       { 'EdenEast/nightfox.nvim' },
       { 'catppuccin/catppuccin' },
       { 'rose-pine/neovim' },
-      { 'Yagua/nebulous.nvim' },
       use {
         'mcchrish/zenbones.nvim',
         requires = 'rktjmp/lush.nvim'

@@ -222,7 +222,7 @@ return packer.startup(
     --- Java LSP ---
     use {
       'mfussenegger/nvim-jdtls',
-      after = 'neovim/nvim-lspconfig'
+      -- after = 'neovim/nvim-lspconfig'
       -- config = function() require 'jdsee.lsp.jdtls' end,
     }
 
@@ -239,7 +239,13 @@ return packer.startup(
     }
 
     --- Clojure Integration ---
-    use { 'Olical/conjure' }
+    use {
+      { 'Olical/conjure' },
+      {
+        'tpope/vim-sexp-mappings-for-regular-people',
+        requires = 'guns/vim-sexp'
+      }
+    }
 
     --- Testrunner ---
     use {

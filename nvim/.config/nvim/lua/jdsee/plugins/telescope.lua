@@ -72,6 +72,16 @@ function M.find_all_files()
   }
 end
 
+function M.find_git_or_all_files()
+  vim.cmd [[ silent! !git rev-parse --is-inside-work-tree ]]
+  if vim.v.shell_error == 0
+  then
+    builtin.git_files()
+  else
+    M.find_all_files()
+  end
+end
+
 function M.find_nvim_files()
   builtin.find_files {
     opt = { cwd = "$XDG_HOME/neovim" },
@@ -84,9 +94,10 @@ function M.spell_suggestions()
 end
 
 -- Keybindings
-vim.keymap.set('n', '<Leader>fa', builtin.builtin) -- search telescope actions
+vim.keymap.set('n', '<C-p>', builtin.builtin) -- search telescope actions
 vim.keymap.set('n', '<Leader>fj', telescope.extensions.zoxide.list) -- search autojump list
-vim.keymap.set('n', '<Leader>ff', M.find_all_files) -- search files
+vim.keymap.set('n', '<Leader>ff', M.find_git_or_all_files) -- git_files if git repo, else all files
+vim.keymap.set('n', '<Leader>fa', M.find_all_files) -- search all files
 vim.keymap.set('n', '<Leader>fn', M.find_nvim_files) -- search files in neovim config
 vim.keymap.set('n', '<Leader>fg', builtin.live_grep) -- grep everywhere
 vim.keymap.set('n', '<Leader>fh', builtin.help_tags) -- search help tags

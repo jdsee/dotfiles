@@ -19,7 +19,8 @@ function M.on_attach(client, bufnr)
   map('n', '<C-K>', vim.lsp.buf.signature_help)
   map('n', '<leader>a', vim.lsp.buf.code_action)
   map('n', '<Leader>rr', vim.lsp.buf.rename)
-  map('n', '<Leader>rf', vim.lsp.buf.formatting)
+  map('n', '<Leader>rn', vim.lsp.buf.rename)
+  map('n', '<Leader>rf', vim.lsp.buf.format)
   map('n', '[d', vim.diagnostic.goto_prev)
   map('n', ']d', vim.diagnostic.goto_next)
   map('n', 'gh', vim.diagnostic.open_float)
@@ -28,7 +29,27 @@ function M.on_attach(client, bufnr)
   -------- and uses find_references else.
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  vim.cmd [[ command! Format lua vim.lsp.buf.formatting()<CR> ]]
+  vim.api.nvim_create_user_command("Format", vim.lsp.buf.format, {})
+
+
+  if client.server_capabilities.documentHighlightProvider then
+    local group = vim.api.nvim_create_augroup("LSPDocumentHighlight", {})
+
+    vim.opt.updatetime = 1
+
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      group = group,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      buffer = bufnr,
+      group = group,
+      callback = vim.lsp.buf.clear_references,
+    })
+  end
+
+
 end
 
 return M

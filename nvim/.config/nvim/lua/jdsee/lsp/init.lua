@@ -51,11 +51,7 @@ require('mason-lspconfig').setup_handlers {
 }
 
 -- Autoformat on save
-local autocmd = vim.api.nvim_create_autocmd
-local formatting_sync = function()
-  vim.lsp.buf.formatting_sync(nil, 100)
-end
-autocmd('BufWritePre', {
+vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = { '*.js', '*.jsx', '*.lua' },
-  callback = formatting_sync,
+  callback = vim.lsp.buf.format,
 })

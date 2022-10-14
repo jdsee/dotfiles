@@ -5,46 +5,54 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# BOOTSTRAP ZNAP
+[[ -f ~/Git/zsh-snap/znap.zsh ]] ||
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
+
+# Load prompt before everything else
+source ~/Git/zsh-snap/znap.zsh # https://github.com/marlonrichert/zsh-snap
+znap prompt sindresorhus/pure
+
 # SOURCES
-source "${ZINIT_HOME}/zinit.zsh"          # docs: https://zdharma-continuum.github.io/zinit/wiki/
 source ${XDG_CONFIG_HOME}/zsh/aliases.zsh
 source ${XDG_CONFIG_HOME}/zsh/completion.zsh
 source ${XDG_CONFIG_HOME}/zsh/functions.zsh
 
-export GPG_TTY=$(tty)                                               # required by gpg-agent
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"                   # use bat as manpager
+export GPG_TTY=$(tty) # required by gpg-agent
+export MANPAGER="sh -c 'col -bx | bat -l man -p'" # use bat as manpager
 
 # OPTIONS
-setopt append_history
-export HISTFILE=~/.zsh-history
 export HISTSIZE=5000
 export SAVEHIST=5000
-export HISTCONTROL=ignoreboth                                       # ignore commands with space prefix in history
-setopt HIST_IGNORE_ALL_DUPS                                         # ignore history duplicates
+export HISTFILE=~/.zsh-history
+export HISTCONTROL=ignoreboth # ignore commands with space prefix in history
+setopt HIST_IGNORE_ALL_DUPS   # ignore history duplicates
+setopt append_history
+
+# PLUGINS
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
+znap source ajeetdsouza/zoxide
+
+# SETUP ZOXIDE
+eval "$(zoxide init zsh --cmd j)"
 
 # SETUP SSH AGENT
 eval "$(ssh-agent)" >/dev/null
 
-# PYENV
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# PYTHON
+znap function _pyenv pyenv 'eval "$( pyenv init - --no-rehash )"'
+compctl -K    _pyenv pyenv
 
-# ZOXIDE (autojump)
-eval "$(zoxide init zsh --cmd j)"
+znap function _pyenv pyenv 'eval "$( pyenv virtualenv-init - )"'
+compctl -K    _pyenv pyenv
 
-# set -o vi                                                           # enable vim mode
+znap function _pip_completion pip 'eval "$( pip completion --zsh )"'
+compctl -K    _pip_completion pip
 
-# PLUGINS
-zinit ice wait'!0'
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'   # pure theme
-zinit light sindresorhus/pure                                       # "
-zinit light zsh-users/zsh-syntax-highlighting                       # syntax highlighting
-zinit light zsh-users/zsh-autosuggestions                           # autosuggestions
-zinit light ajeetdsouza/zoxide                                      # autojump
 
-# PURE
-# PURE_PROMPT_SYMBOL=𝚲
+# THEME
+# PURE_PROMPT_SYMBOL='𝚲'
 PURE_NODE_ENABLED=0
 PURE_CMD_MAX_EXEC_TIME=0
 

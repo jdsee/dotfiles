@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # JDTLS_HOME="$XDG_CONFIG_HOME/nvim/.language_server/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository"
 JDTLS_HOME="$HOME/.local/share/nvim/mason/packages/jdtls"

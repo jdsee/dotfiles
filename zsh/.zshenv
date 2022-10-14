@@ -1,8 +1,8 @@
 # PATH
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
-PATH=$PATH:$HOME/.pyenv/bin
 PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/.pyenv/bin
 PATH=$PATH:/usr/local/opt/texinfo/bin
 
 # GENERAL

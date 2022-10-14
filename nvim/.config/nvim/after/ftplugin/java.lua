@@ -6,8 +6,7 @@ local root_dir = require('jdtls.setup').find_root(root_markers)
 local home = os.getenv('HOME')
 local workspace_folder = home .. '/.local/share/eclipse/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
 local jdtls_home = home .. '/.local/share/nvim/mason/packages/jdtls'
-local jdtls_jar = vim.fn.glob(home ..
-  '/dev/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar')
+local jdtls_jar = vim.fn.glob(jdtls_home .. '/plugins/org.eclipse.equinox.launcher_*.jar')
 
 local config = {}
 config.settings = {
@@ -71,8 +70,8 @@ config.cmd = {
   '-Dlog.protocol=true',
   '-Dlog.level=ALL',
   '-Xmx4g',
-  '-javaagent:$XDG_CONFIG_HOME/nvim/dependencies/lombok.jar',
-  '-Xbootclasspath/a:$XDG_CONFIG_HOME/nvim/dependencies/lombok.jar',
+  -- '-javaagent:$XDG_CONFIG_HOME/nvim/dependencies/lombok.jar',
+  -- '-Xbootclasspath/a:$XDG_CONFIG_HOME/nvim/dependencies/lombok.jar',
   '--add-modules=ALL-SYSTEM',
   '--add-opens', 'java.base/java.util=ALL-UNNAMED',
   '--add-opens', 'java.base/java.lang=ALL-UNNAMED',

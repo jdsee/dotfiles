@@ -44,8 +44,13 @@ opt.splitbelow = true -- open new horizontal splits on the bottom
 opt.joinspaces = false -- prevent some weird extra spaces
 
 -- Style
+<<<<<<< Updated upstream
 vim.cmd [[ colorscheme tokyonight-night ]]
 vim.cmd [[ highlight Normal guibg=none ]] -- make background transparent
+=======
+vim.cmd [[ colorscheme tokyonight-night ]] -- theme
+vim.cmd [[ highlight Normal guibg=none]] -- make background transparent
+>>>>>>> Stashed changes
 opt.termguicolors = true -- true color support
 opt.syntax = 'on' -- basic syntax highlighting
 opt.showmatch = true -- show matching brackets

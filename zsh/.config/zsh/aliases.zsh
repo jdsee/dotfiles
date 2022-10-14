@@ -16,7 +16,7 @@ alias conflicts="grep -lr '<<<<<<<' ."
 
 # GENERAL
 alias _="sudo"
-alias cat="bat -p"
+alias cat="batcat -p"
 alias grep="grep --color"
 alias hgrep="history 0 | grep"
 alias help="man"

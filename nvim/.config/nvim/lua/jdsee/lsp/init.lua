@@ -21,6 +21,7 @@ mason_lspconfig.setup {
     'racket_langserver',
     'sumneko_lua',
     'texlab',
+    'yamlls',
   },
 }
 

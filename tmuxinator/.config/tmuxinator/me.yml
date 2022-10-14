@@ -1,10 +1,9 @@
-# /home/jdsee/.config/tmuxinator/daily-surfer.yml
-
 name: me
 root: ~/
-startup_window: explore
+startup_window: editor
 windows:
-  - home:
+  - home: 
+    - clear
   - editor: nvim -c "Telescope zoxide list"
   - notes:
     - cd ~/my/notes

@@ -7,16 +7,26 @@ return packer.startup(
 
     use 'tpope/vim-repeat' -- repeat plugin commands with .
     use 'tpope/vim-surround' -- work on surrounding characters like [({"'...
-    use 'tpope/vim-fugitive' -- git integration
     use 'wellle/targets.vim' -- inner style text objects
     use 'dhruvasagar/vim-table-mode' -- markdown table support
-    use 'bronson/vim-visual-star-search' -- use * and # in visual mode
     use 'ThePrimeagen/vim-be-good' -- game to practice vim movements
+
+    -- Git Integration ---
+    use {
+      'tpope/vim-fugitive',
+      config = function() require('jdsee.plugins.fugitive') end,
+    }
+
+    -- Git Worktree support ---
+    use {
+      'ThePrimeagen/git-worktree.nvim',
+      config = function() require 'jdsee.plugins.git-worktree' end
+    }
 
     --- Autopair Brackets ---
     use {
       'windwp/nvim-autopairs',
-      config = function() require('nvim-autopairs').setup() end,
+      config = function() require 'jdsee.plugins.nvim-autopairs' end,
     }
 
     --- Comment out Code with gc[motion] ---
@@ -37,22 +47,16 @@ return packer.startup(
       config = function() require('neoscroll').setup() end,
     }
 
-    --- Markdown Browser Preview ---
+    --- Treesitter ---
     use {
-      'iamcco/markdown-preview.nvim',
-      run = 'cd app && yarn install',
-      cmd = 'MarkdownPreview'
-    }
-
-    --- Treesitter: Better Syntax Highlighting ---
-    use {
-      {
-        'nvim-treesitter/nvim-treesitter',
-        config = function() require 'jdsee.plugins.nvim-treesitter' end,
-        run = ':TSUpdate'
+      'nvim-treesitter/nvim-treesitter',
+      requires = {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'nvim-treesitter/nvim-treesitter-context',
       },
-      { 'nvim-treesitter/nvim-treesitter-textobjects' },
-      { 'nvim-treesitter/nvim-treesitter-context' },
+      config = function() require 'jdsee.plugins.nvim-treesitter' end,
+      run = ':TSUpdate'
+      ,
     }
 
     --- Refactoring Tool ---
@@ -63,11 +67,6 @@ return packer.startup(
         { 'nvim-lua/plenary.nvim' },
         { 'nvim-treesitter' }
       }
-    }
-
-    use {
-      'ThePrimeagen/git-worktree.nvim',
-      config = function() require 'jdsee.plugins.git-worktree' end
     }
 
     use {
@@ -124,14 +123,18 @@ return packer.startup(
       { 'Mofiqul/adwaita.nvim' },
       { 'rebelot/kanagawa.nvim' },
       { 'folke/tokyonight.nvim' },
-      { 'shaunsingh/nord.nvim' },
       { 'EdenEast/nightfox.nvim' },
       { 'catppuccin/catppuccin' },
-      { 'rose-pine/neovim' },
+      { 'shaunsingh/oxocarbon.nvim' },
       use {
         'mcchrish/zenbones.nvim',
         requires = 'rktjmp/lush.nvim'
       }
+    }
+
+    use {
+      "smjonas/live-command.nvim",
+      config = function() require 'jdsee.plugins.live-command' end,
     }
 
     --- File Tree ---
@@ -208,6 +211,7 @@ return packer.startup(
         { 'hrsh7th/cmp-nvim-lua' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'saadparwaiz1/cmp_luasnip' },
+        { 'PaterJason/cmp-conjure' },
         { 'rafamadriz/friendly-snippets' },
         { 'onsails/lspkind-nvim' }, -- LSP pictograms
       }
@@ -220,11 +224,7 @@ return packer.startup(
     }
 
     --- Java LSP ---
-    use {
-      'mfussenegger/nvim-jdtls',
-      -- after = 'neovim/nvim-lspconfig'
-      -- config = function() require 'jdsee.lsp.jdtls' end,
-    }
+    use { 'mfussenegger/nvim-jdtls' }
 
     --- Scala LSP ---
     use {
@@ -240,7 +240,10 @@ return packer.startup(
 
     --- Clojure Integration ---
     use {
-      { 'Olical/conjure' },
+      {
+        'Olical/conjure',
+        config = function() require 'jdsee.plugins.conjure' end
+      },
       {
         'tpope/vim-sexp-mappings-for-regular-people',
         requires = 'guns/vim-sexp'

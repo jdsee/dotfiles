@@ -31,6 +31,7 @@ cmp.setup {
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'treesitter' },
+    { name = 'conjure' },
     { name = 'buffer', keyword_length = 5 },
   },
   snippet = {

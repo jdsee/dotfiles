@@ -52,6 +52,18 @@ vim.api.nvim_create_autocmd(
   command = 'PackerSync',
 })
 
+-- Make macro indicator visible with cmdheight=0
+vim.api.nvim_create_autocmd(
+  'RecordingEnter', {
+  pattern = '*',
+  command = 'set cmdheight=1',
+})
+vim.api.nvim_create_autocmd(
+  'RecordingLeave', {
+  pattern = '*',
+  command = 'set cmdheight=0',
+})
+
 -- Turn off cursorline on inactive buffers (stolen from TJ)
 local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 local set_cursorline = function(event, value, pattern)

@@ -29,7 +29,7 @@ local lsp_defaults = {
   flags = {
     debounce_text_changes = 150,
   },
-  capabilities = require('cmp_nvim_lsp').update_capabilities(
+  capabilities = require('cmp_nvim_lsp').default_capabilities(
     vim.lsp.protocol.make_client_capabilities()
   ),
   on_attach = require('jdsee.lsp.config').on_attach,
@@ -56,3 +56,10 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = { '*.js', '*.jsx', '*.lua' },
   callback = vim.lsp.buf.format,
 })
+
+-- -- -- Java LSP Setup Trigger
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = { '*.java' },
+--   callback = require('jdsee.lsp.jdtls').setup,
+--   group = vim.api.nvim_create_augroup('JdtlsSetup', { clear = true }),
+-- })
